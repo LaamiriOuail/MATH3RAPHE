@@ -418,15 +418,21 @@ def btn_dijkstra_event()->None:
             frame_dijkstra.show()
         else :
             if input_source_dijkstra.text() in graphe.getNetworkxGraph() and input_pointFinal_dijkstra.text() in graphe.getNetworkxGraph():
-                if frame_dijkstra.isVisible():
-                    frame_dijkstra.close()
-                dijkstra_repre=frame_dijkstra.newFrameGraphe(0,30,300,270,graphe.getNetworkxGraph(),"graphe",None)
-                frame_graphe_rep.close()
-                frame_graphe_rep_nx=frame_graphe_rep.newFrameGraphe(0,0,600,300,graphe.getNetworkxGraph(),"dijkstra",graphe.getListeDijkstra(input_source_dijkstra.text(),input_pointFinal_dijkstra.text()))
-                frame_graphe_rep.show()
-                note_dijkstra.setStyleSheet("background-color: green ; color : white;font-size:15px;")
-                note_dijkstra.setText("Dijkstra representer...")
-                frame_dijkstra.show()
+                try:
+                    
+                    dijkstra_repre=frame_dijkstra.newFrameGraphe(0,30,300,270,graphe.getNetworkxGraph(),"graphe",None)
+                    
+                    frame_graphe_rep_nx=frame_graphe_rep.newFrameGraphe(0,0,600,300,graphe.getNetworkxGraph(),"dijkstra",graphe.getListeDijkstra(input_source_dijkstra.text(),input_pointFinal_dijkstra.text()))
+                    note_dijkstra.setStyleSheet("background-color: green ; color : white;font-size:15px;")
+                    note_dijkstra.setText("Dijkstra representer...")
+                    frame_graphe_rep.close()
+                    frame_graphe_rep.show()
+                    if frame_dijkstra.isVisible():
+                        frame_dijkstra.close()
+                    frame_dijkstra.show()
+                except:
+                    note_dijkstra.setStyleSheet("background-color:red;font-size:15px;color : white;")
+                    note_dijkstra.setText(f"aucun route entre {input_source_dijkstra.text()} et {input_pointFinal_dijkstra.text()}")
             else :
                 if frame_dijkstra.isVisible():
                     frame_dijkstra.close()
