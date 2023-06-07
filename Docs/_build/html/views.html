@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>views package &mdash; Documentation Theorie de graphe 1.0.0</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="package package" href="package.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Theorie de graphe
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">test-py</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="controller.html">controller package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package.html">package package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">views package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views.bareChoix">views.bareChoix module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#views.bareChoix.bareChoix"><code class="docutils literal notranslate"><span class="pre">bareChoix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views.bfs">views.bfs module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#views.bfs.bfsComponent"><code class="docutils literal notranslate"><span class="pre">bfsComponent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views.dfs">views.dfs module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#views.dfs.dfsComponent"><code class="docutils literal notranslate"><span class="pre">dfsComponent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views.dijkstra">views.dijkstra module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#views.dijkstra.dijkstraComponent"><code class="docutils literal notranslate"><span class="pre">dijkstraComponent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views.edgeManipulation">views.edgeManipulation module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#views.edgeManipulation.EdgeComponent"><code class="docutils literal notranslate"><span class="pre">EdgeComponent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views.grapheInfor">views.grapheInfor module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#views.grapheInfor.infoComponent"><code class="docutils literal notranslate"><span class="pre">infoComponent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views.kruskal">views.kruskal module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#views.kruskal.kruskalComponent"><code class="docutils literal notranslate"><span class="pre">kruskalComponent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views.matrice">views.matrice module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#views.matrice.matrixComponent"><code class="docutils literal notranslate"><span class="pre">matrixComponent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views.prim">views.prim module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#views.prim.primComponent"><code class="docutils literal notranslate"><span class="pre">primComponent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views.tableauDB">views.tableauDB module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#views.tableauDB.tableauBaseDonner"><code class="docutils literal notranslate"><span class="pre">tableauBaseDonner()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-views">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Theorie de graphe</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">test-py</a></li>
+      <li class="breadcrumb-item active">views package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/views.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="views-package">
+<h1>views package<a class="headerlink" href="#views-package" title="Lien permanent vers cette rubrique"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Lien permanent vers cette rubrique"></a></h2>
+</section>
+<section id="module-views.bareChoix">
+<span id="views-barechoix-module"></span><h2>views.bareChoix module<a class="headerlink" href="#module-views.bareChoix" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="views.bareChoix.bareChoix">
+<span class="sig-prename descclassname"><span class="pre">views.bareChoix.</span></span><span class="sig-name descname"><span class="pre">bareChoix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/views/bareChoix.html#bareChoix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#views.bareChoix.bareChoix" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette fonction crée un conteneur avec des boutons pour choisir parmi différentes fonctions.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>container: Le conteneur parent dans lequel placer le conteneur de cette component.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Une liste de boutons, chacun avec une fonctionnalité différente.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-views.bfs">
+<span id="views-bfs-module"></span><h2>views.bfs module<a class="headerlink" href="#module-views.bfs" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="views.bfs.bfsComponent">
+<span class="sig-prename descclassname"><span class="pre">views.bfs.</span></span><span class="sig-name descname"><span class="pre">bfsComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graphe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="reference internal" href="_modules/views/bfs.html#bfsComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#views.bfs.bfsComponent" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée un composant d’affichage d’un parcours en largeur d’un graphe.</p>
+<p>Args:</p>
+<blockquote>
+<div><p>container (Container): Le conteneur parent du composant.</p>
+<p>graphe (Graphe): Le graphe à parcourir.</p>
+<p>source (str, optional): Le sommet de départ du parcours. Si aucun sommet n’est donné, le parcours commencera par un sommet au hasard. Par défaut None.</p>
+</div></blockquote>
+<dl>
+<dt>Returns:</dt><dd><p>tuple:</p>
+<blockquote>
+<div><p>Un tuple contenant les différents éléments du composant :</p>
+<blockquote>
+<div><p>frame_bfs (Frame) : Le cadre contenant le composant.</p>
+<p>input_source_bfs (Input) : Le champ de saisie du sommet de départ.</p>
+<p>btn_bfs (Button) : Le bouton pour lancer le parcours.</p>
+<p>note_bfs (Label) : L’étiquette affichant les informations sur le parcours.</p>
+<p>bfs_repre (FrameGraphe) : Le cadre d’affichage du graphe parcouru.</p>
+</div></blockquote>
+</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-views.dfs">
+<span id="views-dfs-module"></span><h2>views.dfs module<a class="headerlink" href="#module-views.dfs" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="views.dfs.dfsComponent">
+<span class="sig-prename descclassname"><span class="pre">views.dfs.</span></span><span class="sig-name descname"><span class="pre">dfsComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graphe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="reference internal" href="_modules/views/dfs.html#dfsComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#views.dfs.dfsComponent" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Calcule le parcours en profondeur d’un graphe et affiche le résultat dans une fenêtre.</p>
+<p>Args:</p>
+<blockquote>
+<div><p>container: le conteneur où afficher la fenêtre.</p>
+<p>graphe: le graphe à parcourir.</p>
+<p>source: le sommet de départ du parcours. Si None, le parcours commencera au premier sommet du graphe.</p>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><p>Un tuple contenant les widgets créés :</p>
+<blockquote>
+<div><p>frame_dfs : la fenêtre contenant l’affichage du parcours en profondeur.</p>
+<p>input_source_dfs : un champ d’entrée permettant de saisir le sommet de départ du parcours.</p>
+<p>btn_dfs : le bouton permettant de lancer le parcours en profondeur.</p>
+<p>note_dfs : une étiquette affichant des informations sur le parcours en profondeur.</p>
+<p>dfs_repre : l’affichage graphique du parcours en profondeur.</p>
+</div></blockquote>
+</div></blockquote>
+<dl>
+<dt>Exemple:</dt><dd><p>Pour lancer le parcours en profondeur avec le sommet « A » comme point de départ et afficher le résultat dans
+une fenêtre, il suffit de faire :</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfsComponent</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">graphe</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-views.dijkstra">
+<span id="views-dijkstra-module"></span><h2>views.dijkstra module<a class="headerlink" href="#module-views.dijkstra" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="views.dijkstra.dijkstraComponent">
+<span class="sig-prename descclassname"><span class="pre">views.dijkstra.</span></span><span class="sig-name descname"><span class="pre">dijkstraComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graphe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pointFinal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="reference internal" href="_modules/views/dijkstra.html#dijkstraComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#views.dijkstra.dijkstraComponent" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche une fenêtre avec une représentation graphique du graphe, permettant l’exécution de l’algorithme de Dijkstra.</p>
+<p>Args:</p>
+<blockquote>
+<div><p>container: le conteneur parent où la fenêtre doit être affichée.</p>
+<p>graphe: le graphe à représenter.</p>
+<p>source: le sommet de départ pour l’algorithme de Dijkstra.</p>
+<p>pointFinal: le sommet d’arrivée pour l’algorithme de Dijkstra.</p>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><p>Un tuple contenant :</p>
+<blockquote>
+<div><p>frame_dijkstra : le cadre contenant l’interface graphique de l’algorithme de Dijkstra.</p>
+<p>input_source_dijkstra : le champ d’entrée pour le sommet de départ.</p>
+<p>input_pointFinal_dijkstra : le champ d’entrée pour le sommet d’arrivée.</p>
+<p>btn_dijkstra : le bouton pour lancer l’algorithme de Dijkstra.</p>
+<p>note_dijkstra : le champ pour afficher des notes ou des messages d’erreur.</p>
+<p>dijkstra_repre : la représentation graphique du résultat de l’algorithme de Dijkstra, si les sommets de départ et d’arrivée sont spécifiés.</p>
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="module-views.edgeManipulation">
+<span id="views-edgemanipulation-module"></span><h2>views.edgeManipulation module<a class="headerlink" href="#module-views.edgeManipulation" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="views.edgeManipulation.EdgeComponent">
+<span class="sig-prename descclassname"><span class="pre">views.edgeManipulation.</span></span><span class="sig-name descname"><span class="pre">EdgeComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/views/edgeManipulation.html#EdgeComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#views.edgeManipulation.EdgeComponent" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Créer les composants pour ajouter ou supprimer une arête dans un graphe.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>container: le conteneur où les composants seront ajoutés.</p>
+</dd>
+</dl>
+<p>Returns:</p>
+<blockquote>
+<div><p>Un tuple contenant :</p>
+<p>le cadre principal contenant tous les autres cadres et composants</p>
+<p>le cadre pour l’affichage du graphe (vide pour l’instant)</p>
+<p>le cadre pour l’ajout ou la suppression d’une arête</p>
+<p>la liste déroulante pour sélectionner le type de graphe</p>
+<p>le champ d’entrée pour le sommet de départ</p>
+<p>le champ d’entrée pour le sommet d’arrivée</p>
+<p>le libellé pour le poids de l’arête</p>
+<p>le champ d’entrée pour le poids de l’arête</p>
+<p>le bouton pour ajouter une arête</p>
+<p>le bouton pour supprimer une arête</p>
+<p>le bouton pour réinitialiser le graphe</p>
+<p>le bouton pour enregistrer le graphe</p>
+<p>le libellé pour afficher un message après l’ajout ou la suppression d’une arête.</p>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="module-views.grapheInfor">
+<span id="views-grapheinfor-module"></span><h2>views.grapheInfor module<a class="headerlink" href="#module-views.grapheInfor" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="views.grapheInfor.infoComponent">
+<span class="sig-prename descclassname"><span class="pre">views.grapheInfor.</span></span><span class="sig-name descname"><span class="pre">infoComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/views/grapheInfor.html#infoComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#views.grapheInfor.infoComponent" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée et retourne un conteneur d’informations sur un graphe ainsi que des labels pour afficher les informations.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>container (QWidget): Le conteneur dans lequel les informations doivent être créées.</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple: Un tuple contenant le conteneur créé et les labels pour afficher les informations sur le graphe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-views.kruskal">
+<span id="views-kruskal-module"></span><h2>views.kruskal module<a class="headerlink" href="#module-views.kruskal" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="views.kruskal.kruskalComponent">
+<span class="sig-prename descclassname"><span class="pre">views.kruskal.</span></span><span class="sig-name descname"><span class="pre">kruskalComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graphe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="reference internal" href="_modules/views/kruskal.html#kruskalComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#views.kruskal.kruskalComponent" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée un composant pour l’algorithme de Kruskal.</p>
+<p>Args:</p>
+<blockquote>
+<div><p>container: Le conteneur pour le composant.</p>
+<p>graphe: Le graphe sur lequel l’algorithme sera appliqué.</p>
+<p>source (str, optionnel): Le sommet de départ pour le graphe kruskal.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Un tuple contenant le cadre du composant, le champ de saisie pour le sommet de départ, le bouton pour lancer l’algorithme, une note pour les résultats et le cadre du graphe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-views.matrice">
+<span id="views-matrice-module"></span><h2>views.matrice module<a class="headerlink" href="#module-views.matrice" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="views.matrice.matrixComponent">
+<span class="sig-prename descclassname"><span class="pre">views.matrice.</span></span><span class="sig-name descname"><span class="pre">matrixComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="reference internal" href="_modules/views/matrice.html#matrixComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#views.matrice.matrixComponent" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée une fenêtre contenant deux matrices : une matrice d’adjacence et une matrice d’incidence.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>container: un objet container (par exemple un objet Window) dans lequel créer la fenêtre</p>
+</dd>
+<dt>Returns:</dt><dd><p>Un tuple contenant trois éléments : le cadre principal de la fenêtre, la table pour la matrice d’incidence, et la table pour la matrice d’adjacence.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-views.prim">
+<span id="views-prim-module"></span><h2>views.prim module<a class="headerlink" href="#module-views.prim" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="views.prim.primComponent">
+<span class="sig-prename descclassname"><span class="pre">views.prim.</span></span><span class="sig-name descname"><span class="pre">primComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graphe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="reference internal" href="_modules/views/prim.html#primComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#views.prim.primComponent" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée une fenêtre Qt contenant une représentation graphique d’un graphe
+ainsi qu’un algorithme de recherche d’arbre couvrant minimal de Prim.</p>
+<p>Args:</p>
+<blockquote>
+<div><p>container (QtWidgets.QWidget): Le conteneur parent de la fenêtre.</p>
+<p>graphe (Graph): Le graphe à afficher.</p>
+<dl class="simple">
+<dt>source (str|None): Le sommet de départ pour l’algorithme de Prim.</dt><dd><p>Si None, le sommet est choisi aléatoirement.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>Returns:</dt><dd><p>tuple: Un tuple contenant plusieurs éléments :</p>
+<blockquote>
+<div><p>frame_prim : la fenêtre principale de l’application</p>
+<p>input_source_prim : l’objet QLineEdit pour entrer le sommet de départ</p>
+<p>btn_prim : le bouton pour lancer l’algorithme de Prim</p>
+<p>note_prim : le label pour afficher des informations à l’utilisateur</p>
+<p>prim_repre : la représentation graphique du graphe et de l’arbre couvrant minimal de Prim</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-views.tableauDB">
+<span id="views-tableaudb-module"></span><h2>views.tableauDB module<a class="headerlink" href="#module-views.tableauDB" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="views.tableauDB.tableauBaseDonner">
+<span class="sig-prename descclassname"><span class="pre">views.tableauDB.</span></span><span class="sig-name descname"><span class="pre">tableauBaseDonner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/views/tableauDB.html#tableauBaseDonner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#views.tableauDB.tableauBaseDonner" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée un tableau de base de données à partir d’un conteneur donné.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>container: Le conteneur dans lequel le tableau sera créé.</p>
+</dd>
+</dl>
+<p>Returns:</p>
+<blockquote>
+<div><p>frame_tableau_bd: Le cadre du tableau de base de données.</p>
+<p>input_id: Le champ de saisie pour l’identifiant.</p>
+<p>btn_recherche: Le bouton de recherche.</p>
+<p>btn_delete: Le bouton de suppression.</p>
+<p>btn_utiliser: Le bouton d’utilisation.</p>
+<p>table_historique_graphe: Le tableau d’historique des graphes.</p>
+<p>note_table_db: L’étiquette de la table de base de données.</p>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="module-views">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-views" title="Lien permanent vers cette rubrique"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="package.html" class="btn btn-neutral float-left" title="package package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, LAAMIRI Ouail.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

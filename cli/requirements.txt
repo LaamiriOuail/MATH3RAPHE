@@ -1,0 +1,4 @@
+setuptools
+click
+colorama
+sqlite3

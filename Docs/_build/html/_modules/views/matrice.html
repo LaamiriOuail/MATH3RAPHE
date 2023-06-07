@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>views.matrice &mdash; Documentation Theorie de graphe 1.0.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Theorie de graphe
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">test-py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Theorie de graphe</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">views.matrice</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de views.matrice</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QDesktopServices</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QUrl</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QTableWidget</span><span class="p">,</span> <span class="n">QTableWidgetItem</span><span class="p">,</span> <span class="n">QApplication</span>
+
+
+<div class="viewcode-block" id="matrixComponent"><a class="viewcode-back" href="../../views.html#views.matrice.matrixComponent">[docs]</a><span class="k">def</span> <span class="nf">matrixComponent</span><span class="p">(</span><span class="n">container</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">tuple</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Crée une fenêtre contenant deux matrices : une matrice d&#39;adjacence et une matrice d&#39;incidence.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        container: un objet container (par exemple un objet Window) dans lequel créer la fenêtre</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Un tuple contenant trois éléments : le cadre principal de la fenêtre, la table pour la matrice d&#39;incidence, et la table pour la matrice d&#39;adjacence.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">frame_matrix</span><span class="o">=</span><span class="n">container</span><span class="o">.</span><span class="n">newFram</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:None;font-size:7px;&#39;</span><span class="p">)</span>
+    <span class="n">frame_matrix_adjacent</span><span class="o">=</span><span class="n">frame_matrix</span><span class="o">.</span><span class="n">newFram</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;border:1px solid blue;border-left:none;border-top:none;border-bottom:none;&#39;</span><span class="p">)</span>
+    <span class="n">frame_matrix_adjacent</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:blue;border:none&#39;</span><span class="p">,</span><span class="s2">&quot;Matrice d&#39;adjacence&quot;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">frame_matrix_adjacent</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:black;border:none&#39;</span><span class="p">,</span><span class="s2">&quot;une matrice &lt;b&gt;d&#39;adjacence&lt;/b&gt; pour un graphe fini à n&quot;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">frame_matrix_adjacent</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:black;border:none&#39;</span><span class="p">,</span><span class="s1">&#39;sommets est une matrice de dimension n x n &#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">frame_matrix_adjacent</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:black;border:none&#39;</span><span class="p">,</span><span class="s2">&quot;dont l&#39;élément non diagonal a&lt;sub&gt;ij&lt;/sub&gt; est le nombre&quot;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">frame_matrix_adjacent</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:black;border:none&#39;</span><span class="p">,</span><span class="s2">&quot;d&#39;arêtes liant le sommet i au sommet j&quot;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">url_adj</span> <span class="o">=</span> <span class="s2">&quot;https://fr.wikipedia.org/wiki/Matrice_d</span><span class="si">%27a</span><span class="s2">djacence&quot;</span>
+    <span class="n">frame_url_adj</span><span class="o">=</span><span class="n">frame_matrix_adjacent</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">232</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:black;border:none&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s2">&quot;&lt;a href=</span><span class="si">{</span><span class="n">url_adj</span><span class="si">}</span><span class="s2">&gt;wikipedia&lt;/a&gt;&quot;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">frame_url_adj</span><span class="o">.</span><span class="n">setOpenExternalLinks</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">open_link_adj</span><span class="p">()</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">QDesktopServices</span><span class="o">.</span><span class="n">openUrl</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="n">url_adj</span><span class="p">))</span>
+    <span class="n">frame_url_adj</span><span class="o">.</span><span class="n">linkActivated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">open_link_adj</span><span class="p">)</span>
+    <span class="n">table_matrix_adj</span> <span class="o">=</span> <span class="n">QTableWidget</span><span class="p">(</span><span class="n">frame_matrix_adjacent</span><span class="p">)</span>
+    <span class="n">table_matrix_adj</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;border : 1px solid black;font-size:15px;&quot;</span><span class="p">)</span>
+    <span class="n">table_matrix_adj</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">280</span><span class="p">,</span><span class="mi">180</span><span class="p">)</span>
+    <span class="c1">####################################################</span>
+    <span class="n">frame_matrix_incident</span><span class="o">=</span><span class="n">frame_matrix</span><span class="o">.</span><span class="n">newFram</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">frame_matrix_incident</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:blue;&#39;</span><span class="p">,</span><span class="s2">&quot;Matrice d&#39;incidence&quot;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">frame_matrix_incident</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:black;&#39;</span><span class="p">,</span><span class="s2">&quot;La matrice &lt;b&gt;d&#39;incidence&lt;/b&gt; d&#39;un graphe est une matrice&quot;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">frame_matrix_incident</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:black;&#39;</span><span class="p">,</span><span class="s1">&#39;qui décrit le graphe en indiquant quels liens &#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">frame_matrix_incident</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:black;&#39;</span><span class="p">,</span><span class="s2">&quot;arrivent sur quels sommets.&quot;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">url_inc</span> <span class="o">=</span> <span class="s2">&quot;https://fr.wikipedia.org/wiki/Matrice_d</span><span class="si">%27i</span><span class="s2">ncidence&quot;</span>
+    <span class="n">frame_url_inc</span><span class="o">=</span><span class="n">frame_matrix_incident</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">290</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:13px;color:black;&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s2">&quot;&lt;a href=</span><span class="si">{</span><span class="n">url_inc</span><span class="si">}</span><span class="s2">&gt;wikipedia&lt;/a&gt;&quot;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">frame_url_inc</span><span class="o">.</span><span class="n">setOpenExternalLinks</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">open_link_inc</span><span class="p">()</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">QDesktopServices</span><span class="o">.</span><span class="n">openUrl</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="n">url_inc</span><span class="p">))</span>
+    <span class="n">frame_url_inc</span><span class="o">.</span><span class="n">linkActivated</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">open_link_inc</span><span class="p">)</span>
+    <span class="n">table_matrix_inc</span> <span class="o">=</span> <span class="n">QTableWidget</span><span class="p">(</span><span class="n">frame_matrix_incident</span><span class="p">)</span>
+    <span class="n">table_matrix_inc</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">280</span><span class="p">,</span><span class="mi">180</span><span class="p">)</span>
+    <span class="n">table_matrix_inc</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;border : 1px solid black;font-size:15px;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">frame_matrix</span><span class="p">,</span><span class="n">table_matrix_inc</span><span class="p">,</span><span class="n">table_matrix_adj</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, LAAMIRI Ouail.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

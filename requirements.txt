@@ -1,0 +1,8 @@
+PyQt5
+pymongo
+sqlite3
+networkx
+pygame
+sphinx
+fpdf
+matplotlib

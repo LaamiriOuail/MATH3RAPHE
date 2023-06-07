@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>package.UI &mdash; Documentation Theorie de graphe 1.0.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Theorie de graphe
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">test-py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Theorie de graphe</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">package.UI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de package.UI</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QTableWidget</span><span class="p">,</span><span class="n">QTableWidgetItem</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="kn">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
+<span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># import Graphe</span>
+<div class="viewcode-block" id="Window"><a class="viewcode-back" href="../../package.html#package.UI.Window">[docs]</a><span class="k">class</span> <span class="nc">Window</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe représentant la fenêtre principale de l&#39;application.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        wwith (int): La largeur de la fenêtre.</span>
+<span class="sd">        </span>
+<span class="sd">        wheigth (int): La hauteur de la fenêtre.</span>
+<span class="sd">        </span>
+<span class="sd">        title (str): Le titre de la fenêtre.</span>
+<span class="sd">        </span>
+<span class="sd">        iconImage (str|None): Le chemin vers l&#39;image à utiliser pour l&#39;icône de la fenêtre. None si pas d&#39;image.</span>
+<span class="sd">        </span>
+<span class="sd">        bakgroundImage (str|None): Le chemin vers l&#39;image à utiliser pour l&#39;arrière-plan de la fenêtre. None si pas d&#39;image.</span>
+<span class="sd">        </span>
+<span class="sd">        styleCSS (str|None): Chaîne de style CSS ou None s&#39;il n&#39;y en a pas.</span>
+<span class="sd">        </span>
+<span class="sd">        fixedSize (bool|int): Si la fenêtre doit être de taille fixe. True ou 1 si oui, False ou 0 si non.</span>
+<span class="sd">        </span>
+<span class="sd">        opacity (float|None): L&#39;opacité de la fenêtre. None si pas d&#39;opacité.</span>
+<span class="sd">    </span>
+<span class="sd">    Methods:</span>
+<span class="sd">        newFram: Crée une nouvelle instance de la classe Fram et la retourne.</span>
+<span class="sd">        </span>
+<span class="sd">        keyPressEvent: Méthode de gestionnaire d&#39;événements qui est appelée lorsque l&#39;utilisateur appuie sur la touche &quot;Entrée&quot;.</span>
+<span class="sd">        </span>
+<span class="sd">        center: Centre la fenêtre sur l&#39;écran.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">wwith</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">wheigth</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">title</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">iconImage</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span><span class="p">,</span><span class="n">bakgroundImage</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span><span class="p">,</span><span class="n">styleCSS</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span><span class="p">,</span><span class="n">fixedSize</span><span class="p">:</span><span class="nb">bool</span><span class="o">|</span><span class="nb">int</span><span class="p">,</span><span class="n">opacity</span><span class="p">:</span><span class="nb">float</span><span class="o">|</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise une nouvelle instance de la classe Window.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            wwith (int): La largeur de la fenêtre.</span>
+<span class="sd">            </span>
+<span class="sd">            wheigth (int): La hauteur de la fenêtre.</span>
+<span class="sd">            </span>
+<span class="sd">            title (str): Le titre de la fenêtre.</span>
+<span class="sd">            </span>
+<span class="sd">            iconImage (str|None): Le chemin vers l&#39;image à utiliser pour l&#39;icône de la fenêtre. None si pas d&#39;image.</span>
+<span class="sd">            </span>
+<span class="sd">            bakgroundImage (str|None): Le chemin vers l&#39;image à utiliser pour l&#39;arrière-plan de la fenêtre. None si pas d&#39;image.</span>
+<span class="sd">            </span>
+<span class="sd">            styleCSS (str|None): Chaîne de style CSS ou None s&#39;il n&#39;y en a pas.</span>
+<span class="sd">            </span>
+<span class="sd">            fixedSize (bool|int): Si la fenêtre doit être de taille fixe. True ou 1 si oui, False ou 0 si non.</span>
+<span class="sd">            </span>
+<span class="sd">            opacity (float|None): L&#39;opacité de la fenêtre. None si pas d&#39;opacité.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">fixedSize</span><span class="o">==</span><span class="kc">True</span> <span class="ow">or</span> <span class="n">fixedSize</span><span class="o">==</span><span class="mi">1</span> <span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">setFixedSize</span><span class="p">(</span><span class="n">wwith</span><span class="p">,</span><span class="n">wheigth</span><span class="p">)</span>
+            <span class="c1">#self.setWindowFlags(self.windowFlags() &amp; ~Qt.WindowMinMaxButtonsHint)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setWindowFlags</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">windowFlags</span><span class="p">()</span> <span class="o">|</span> <span class="n">Qt</span><span class="o">.</span><span class="n">WindowMinimizeButtonHint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">wwith</span><span class="p">,</span><span class="n">wheigth</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">opacity</span><span class="o">!=</span><span class="kc">None</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setWindowOpacity</span><span class="p">(</span><span class="n">opacity</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">styleCSS</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">styleCSS</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">iconImage</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setWindowIcon</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">iconImage</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">bakgroundImage</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">pixmap</span> <span class="o">=</span> <span class="n">QPixmap</span><span class="p">(</span><span class="n">bakgroundImage</span><span class="p">)</span><span class="o">.</span><span class="n">scaled</span><span class="p">(</span><span class="n">wwith</span><span class="p">,</span><span class="n">wheigth</span><span class="p">)</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">pixmap</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
+<div class="viewcode-block" id="Window.center"><a class="viewcode-back" href="../../package.html#package.UI.Window.center">[docs]</a>    <span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Centre la fenêtre sur l&#39;écran.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">screen_size</span> <span class="o">=</span> <span class="n">QDesktopWidget</span><span class="p">()</span><span class="o">.</span><span class="n">screenGeometry</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">center_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">())</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">center_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_size</span><span class="o">.</span><span class="n">height</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">center_x</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">center_y</span><span class="p">))</span></div>
+<div class="viewcode-block" id="Window.newFram"><a class="viewcode-back" href="../../package.html#package.UI.Window.newFram">[docs]</a>    <span class="k">def</span> <span class="nf">newFram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">top</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">wwidth</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">wheigth</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">bakgroundImage</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span><span class="p">,</span><span class="n">styleCSS</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Crée un nouveau cadre (Fram) dans la fenêtre.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            left (int): La position horizontale du cadre en pixels.</span>
+<span class="sd">            </span>
+<span class="sd">            top (int): La position verticale du cadre en pixels.</span>
+<span class="sd">            </span>
+<span class="sd">            wwidth (int): La largeur du cadre en pixels.</span>
+<span class="sd">            </span>
+<span class="sd">            wheigth (int): La hauteur du cadre en pixels.</span>
+<span class="sd">            </span>
+<span class="sd">            bakgroundImage (str | None): Le chemin d&#39;accès à l&#39;image de fond du cadre.</span>
+<span class="sd">            </span>
+<span class="sd">            styleCSS (str | None): Chaîne de style CSS ou None s&#39;il n&#39;y en a pas.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Fram: L&#39;objet créé pour le cadre.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">Fram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">wwidth</span><span class="p">,</span><span class="n">wheigth</span><span class="p">,</span><span class="n">bakgroundImage</span><span class="p">,</span><span class="n">styleCSS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">name</span></div>
+<div class="viewcode-block" id="Window.keyPressEvent"><a class="viewcode-back" href="../../package.html#package.UI.Window.keyPressEvent">[docs]</a>    <span class="k">def</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Gère l&#39;événement de pression de touche du clavier.</span>
+<span class="sd">        Cette méthode est appelée chaque fois qu&#39;une touche du clavier est pressée alors que la </span>
+<span class="sd">        fenêtre a le focus.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            event (QEvent): L&#39;événement de pression de touche du clavier.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Aucune valeur de retour.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Si la touche Entrée est pressée, passer au champ QLineEdit suivant</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span><span class="p">()</span> <span class="o">==</span> <span class="mi">16777220</span><span class="p">:</span>  <span class="c1"># 16777220 correspond à la touche &quot;Entrée&quot;</span>
+            <span class="n">focus</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">focusWidget</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">focus</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">focus</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">focusNextChild</span><span class="p">()</span></div></div>
+<div class="viewcode-block" id="Fram"><a class="viewcode-back" href="../../package.html#package.UI.Fram">[docs]</a><span class="k">class</span> <span class="nc">Fram</span><span class="p">(</span><span class="n">QFrame</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Frame personnalisée basée sur QFrame qui peut contenir des widgets et qui prend en charge la personnalisation </span>
+<span class="sd">    de la feuille de style CSS, la création de boutons, de libellés et d&#39;entrées de texte avec des propriétés spécifiques.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        window (Union[Window, QWidget]): Une référence à la fenêtre parente.</span>
+<span class="sd">        </span>
+<span class="sd">        left (int): La position horizontale du cadre par rapport à la fenêtre parente.</span>
+<span class="sd">        </span>
+<span class="sd">        top (int): La position verticale du cadre par rapport à la fenêtre parente.</span>
+<span class="sd">        </span>
+<span class="sd">        width (int): La largeur du cadre.</span>
+<span class="sd">        </span>
+<span class="sd">        height (int): La hauteur du cadre.</span>
+<span class="sd">        </span>
+<span class="sd">        background_image (str|None): Le chemin d&#39;accès de l&#39;image d&#39;arrière-plan du cadre. None par défaut.</span>
+<span class="sd">         </span>
+<span class="sd">        style_css (str|None): Les styles CSS à appliquer au cadre. None par défaut.</span>
+<span class="sd">        </span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        __init__(self, window: Union[Window, QWidget], left: int, top: int, width: int, height: int, background_image: Optional[str] = None, style_css: Optional[str] = None) -&gt; None:</span>
+<span class="sd">            Initialise une instance de la classe Frame.</span>
+
+<span class="sd">        newButton(self, left: int, top: int, width: int, height: int, styleCSS: str, hoverStyleCss: str, title: str, icon: str, event: Optional[Callable[..., Any]] = None) -&gt; QPushButton:</span>
+<span class="sd">            Crée et retourne un bouton avec des styles CSS et des actions personnalisées.</span>
+
+<span class="sd">        newLabel(self, left: int, top: int, width: int, height: int, styleCSS: str, titleHTML: str, textCenter: Union[bool, int]) -&gt; QLabel:</span>
+<span class="sd">            Créer et retourne un QLabel avec des propriétés spécifiques.</span>
+
+<span class="sd">        newInput(self, left: int, top: int, width: int, height: int, style: str, placeholder: str, textCenter: Union[bool, int], passwordInput: Union[bool, int]) -&gt; QLineEdit:</span>
+<span class="sd">            Créer et retourne un QLineEdit avec des propriétés spécifiques.</span>
+<span class="sd">            </span>
+<span class="sd">        newComboBox(self, left: int, top: int, iwith: int, iheight: int, firstItem: str, styleCSS: str, hoverStyleCss: str) -&gt; QComboBox:</span>
+<span class="sd">            Crée et retourne un nouveau QComboBox.</span>
+<span class="sd">        </span>
+<span class="sd">        newFram(self, left: int, top: int, wwith: int, wheigth: int, backgroundImage: str, styleCSS: str) -&gt; QFrame:</span>
+<span class="sd">            Crée un nouveau QFrame avec les propriétés spécifiées.</span>
+<span class="sd">            </span>
+<span class="sd">        newLogo(self, left: int, top: int, wwith: int, wheigth: int, icon: str) -&gt; QLabel:</span>
+<span class="sd">            Crée et retourne un nouveau QLabel avec une icône spécifiée.</span>
+<span class="sd">            </span>
+<span class="sd">        closeFrame(self) -&gt; bool:</span>
+<span class="sd">            Ferme la fenêtre Frame.</span>
+
+<span class="sd">        showFrame(self) -&gt; None:</span>
+<span class="sd">            Affiche la fenêtre Frame.</span>
+
+<span class="sd">        newTable(self, left:int, top:int, lwith:int, lheigth:int, styleCSS:str, row:int|None, col:int|None) -&gt; QTableWidget:</span>
+<span class="sd">            Crée une nouvelle instance de QTableWidget.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">window</span><span class="p">:</span><span class="n">Window</span><span class="o">|</span><span class="n">QWidget</span><span class="p">,</span><span class="n">left</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">top</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">wwith</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">wheigth</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">bakgroundImage</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span><span class="p">,</span><span class="n">styleCSS</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise une instance de la classe Fram.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            window (Union[Window, QWidget]): Une référence à la fenêtre parente.</span>
+<span class="sd">            left (int): La position horizontale du cadre par rapport à la fenêtre parente.</span>
+<span class="sd">            top (int): La position verticale du cadre par rapport à la fenêtre parente.</span>
+<span class="sd">            width (int): La largeur du cadre.</span>
+<span class="sd">            height (int): La hauteur du cadre.</span>
+<span class="sd">            background_image (str|None): Le chemin d&#39;accès de l&#39;image d&#39;arrière-plan du cadre. None par défaut. </span>
+<span class="sd">            style_css (str|None): Les styles CSS à appliquer au cadre. None par défaut.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">wwith</span><span class="p">,</span><span class="n">wheigth</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">bakgroundImage</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">pixmap</span> <span class="o">=</span> <span class="n">QPixmap</span><span class="p">(</span><span class="n">bakgroundImage</span><span class="p">)</span><span class="o">.</span><span class="n">scaled</span><span class="p">(</span><span class="n">wwith</span><span class="p">,</span><span class="n">wheigth</span><span class="p">)</span>
+            <span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">pixmap</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">styleCSS</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">styleCSS</span><span class="p">)</span>
+<div class="viewcode-block" id="Fram.newButton"><a class="viewcode-back" href="../../package.html#package.UI.Fram.newButton">[docs]</a>    <span class="k">def</span> <span class="nf">newButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">top</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">lwith</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">lheigth</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">styleCSS</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">hoverStyleCss</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">title</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">icon</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">event</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">QPushButton</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Crée et retourne un bouton avec des styles CSS et des actions personnalisées.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            left (int): Position horizontale du bouton.</span>
+<span class="sd">            </span>
+<span class="sd">            top (int): Position verticale du bouton.</span>
+<span class="sd">            </span>
+<span class="sd">            lwith (int): Largeur du bouton.</span>
+<span class="sd">            </span>
+<span class="sd">            lheigth (int): Hauteur du bouton.</span>
+<span class="sd">            </span>
+<span class="sd">            styleCSS (str): Feuille de style CSS pour le bouton.</span>
+<span class="sd">            </span>
+<span class="sd">            hoverStyleCss (str): Feuille de style CSS pour le survol du bouton.</span>
+<span class="sd">            </span>
+<span class="sd">            title (str): Titre du bouton.</span>
+<span class="sd">            </span>
+<span class="sd">            icon (str): Chemin d&#39;accès à l&#39;icône du bouton.</span>
+<span class="sd">            </span>
+<span class="sd">            event (Optional[Callable[..., Any]], optional): Fonction de rappel pour l&#39;action personnalisée du bouton. Defaults to None.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            QPushButton: Instance du bouton créé.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span><span class="n">QPushButton</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
+                          <span class="s2">&quot;QPushButton&quot;</span>
+                          <span class="s2">&quot;{&quot;</span>
+                          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">styleCSS</span><span class="si">}</span><span class="s1">&#39;</span>
+                          <span class="s2">&quot;}&quot;</span>
+                          <span class="s2">&quot;QPushButton::hover&quot;</span>
+                          <span class="s2">&quot;{&quot;</span>
+                          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">hoverStyleCss</span><span class="si">}</span><span class="s1">&#39;</span>
+                          <span class="s2">&quot;}&quot;</span><span class="p">)</span>   
+        <span class="n">name</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">lwith</span><span class="p">,</span><span class="n">lheigth</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="n">icon</span><span class="p">))</span>
+        <span class="k">if</span>  <span class="n">event</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">event</span><span class="o">!=</span><span class="kc">False</span><span class="p">:</span>
+            <span class="n">name</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">event</span><span class="p">)</span> 
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        in function with Parameter :</span>
+<span class="sd">        from functools import partial</span>
+<span class="sd">        event=partial(nameFunction,parametre1=...,parametre2=...,...) </span>
+<span class="sd">        or event=partial(nameFunction,value1,value2,...) avec parametre1=value1,parametre2=value2,...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">name</span></div>
+<div class="viewcode-block" id="Fram.newLabel"><a class="viewcode-back" href="../../package.html#package.UI.Fram.newLabel">[docs]</a>    <span class="k">def</span> <span class="nf">newLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">top</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">lwith</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">lheight</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">styleCSS</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">titleHTML</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">textCenter</span><span class="p">:</span><span class="nb">bool</span><span class="o">|</span><span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">QLabel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Créer et retourne un QLabel avec des propriétés spécifiques.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            left (int): la position horizontale du coin supérieur gauche du QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">            top (int): la position verticale du coin supérieur gauche du QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">            lwith (int): la largeur du QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">            lheight (int): la hauteur du QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">            styleCSS (str): les propriétés CSS à appliquer au QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">            titleHTML (str): le texte HTML à afficher dans le QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">            textCenter (bool|int): si True ou 1, le texte est centré dans le QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            QLabel: le QLabel créé.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span><span class="n">QLabel</span><span class="p">(</span><span class="n">titleHTML</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">lwith</span><span class="p">,</span><span class="n">lheight</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">styleCSS</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">textCenter</span><span class="o">==</span><span class="kc">True</span> <span class="ow">or</span> <span class="n">textCenter</span><span class="o">==</span><span class="mi">1</span> <span class="p">:</span>
+           <span class="n">name</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span> 
+        <span class="k">return</span> <span class="n">name</span></div>
+<div class="viewcode-block" id="Fram.newInput"><a class="viewcode-back" href="../../package.html#package.UI.Fram.newInput">[docs]</a>    <span class="k">def</span> <span class="nf">newInput</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">top</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">iwith</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">iheight</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">style</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">placeholder</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">textCenter</span><span class="p">:</span><span class="nb">bool</span><span class="o">|</span><span class="nb">int</span><span class="p">,</span><span class="n">passwordInput</span><span class="p">:</span><span class="nb">bool</span><span class="o">|</span><span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">QLineEdit</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Créer et retourne un QLineEdit avec des propriétés spécifiques.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            left (int): la position horizontale du coin supérieur gauche du QLineEdit.</span>
+<span class="sd">            </span>
+<span class="sd">            top (int): la position verticale du coin supérieur gauche du QLineEdit.</span>
+<span class="sd">            </span>
+<span class="sd">            iwith (int): la largeur du QLineEdit.</span>
+<span class="sd">            </span>
+<span class="sd">            iheight (int): la hauteur du QLineEdit.</span>
+<span class="sd">            </span>
+<span class="sd">            style (str): les propriétés CSS à appliquer au QLineEdit.</span>
+<span class="sd">            </span>
+<span class="sd">            placeholder (str): le texte à afficher dans le QLineEdit tant que l&#39;utilisateur n&#39;a pas entré de valeur.</span>
+<span class="sd">            </span>
+<span class="sd">            textCenter (bool|int): si True ou 1, le texte est centré dans le QLineEdit.</span>
+<span class="sd">            </span>
+<span class="sd">            passwordInput (bool|int): si True ou 1, le QLineEdit est affiché comme champ de saisie de mot de passe.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            QLineEdit: le QLineEdit créé.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setPlaceholderText</span><span class="p">(</span><span class="n">placeholder</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">iwith</span><span class="p">,</span><span class="n">iheight</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">textCenter</span><span class="o">==</span><span class="kc">True</span> <span class="ow">or</span> <span class="n">textCenter</span><span class="o">==</span><span class="mi">1</span> <span class="p">:</span>
+           <span class="n">name</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">passwordInput</span><span class="o">==</span><span class="kc">True</span> <span class="ow">or</span> <span class="n">passwordInput</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">name</span><span class="o">.</span><span class="n">setEchoMode</span><span class="p">(</span><span class="n">QLineEdit</span><span class="o">.</span><span class="n">Password</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">name</span></div>
+<div class="viewcode-block" id="Fram.newComboBox"><a class="viewcode-back" href="../../package.html#package.UI.Fram.newComboBox">[docs]</a>    <span class="k">def</span> <span class="nf">newComboBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">top</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">iwith</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">iheight</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">firstItem</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">styleCSS</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">hoverStyleCss</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">QComboBox</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Crée et retourne un nouveau QComboBox.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            left (int): La position X du coin supérieur gauche de la liste déroulante.</span>
+<span class="sd">            </span>
+<span class="sd">            top (int): La position Y du coin supérieur gauche de la liste déroulante.</span>
+<span class="sd">            </span>
+<span class="sd">            iwith (int): La largeur de la liste déroulante.</span>
+<span class="sd">            </span>
+<span class="sd">            iheight (int): La hauteur de la liste déroulante.</span>
+<span class="sd">            </span>
+<span class="sd">            firstItem (str): Le premier élément de la liste déroulante.</span>
+<span class="sd">            </span>
+<span class="sd">            styleCSS (str): La feuille de style CSS appliquée à la liste déroulante.</span>
+<span class="sd">            </span>
+<span class="sd">            hoverStyleCss (str): La feuille de style CSS appliquée à la liste déroulante lorsqu&#39;elle est survolée.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            QComboBox: Le nouveau QComboBox créé.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">QComboBox</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">firstItem</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
+                          <span class="s2">&quot;QComboBox&quot;</span>
+                          <span class="s2">&quot;{&quot;</span>
+                          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">styleCSS</span><span class="si">}</span><span class="s1">&#39;</span>
+                          <span class="s2">&quot;}&quot;</span>
+                          <span class="s2">&quot;QComboBox::hover&quot;</span>
+                          <span class="s2">&quot;{&quot;</span>
+                          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">hoverStyleCss</span><span class="si">}</span><span class="s1">&#39;</span>
+                          <span class="s2">&quot;}&quot;</span><span class="p">)</span>  
+        <span class="n">name</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">iwith</span><span class="p">,</span><span class="n">iheight</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">name</span></div>
+<div class="viewcode-block" id="Fram.newFram"><a class="viewcode-back" href="../../package.html#package.UI.Fram.newFram">[docs]</a>    <span class="k">def</span> <span class="nf">newFram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">top</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">wwith</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">wheigth</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">bakgroundImage</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">styleCSS</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">QFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Crée un nouveau QFrame avec les propriétés spécifiées.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            left (int): La position horizontale du coin supérieur gauche du QFrame.</span>
+<span class="sd">            </span>
+<span class="sd">            top (int): La position verticale du coin supérieur gauche du QFrame.</span>
+<span class="sd">            </span>
+<span class="sd">            wwith (int): La largeur du QFrame.</span>
+<span class="sd">            </span>
+<span class="sd">            wheigth (int): La hauteur du QFrame.</span>
+<span class="sd">            </span>
+<span class="sd">            backgroundImage (str): Le chemin de l&#39;image de fond à utiliser pour le QFrame.</span>
+<span class="sd">            </span>
+<span class="sd">            styleCSS (str): La feuille de style CSS à utiliser pour le QFrame.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            QFrame: Un nouveau QFrame avec les propriétés spécifiées.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">Fram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">wwith</span><span class="p">,</span><span class="n">wheigth</span><span class="p">,</span><span class="n">bakgroundImage</span><span class="p">,</span><span class="n">styleCSS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">name</span></div>
+<div class="viewcode-block" id="Fram.newLogo"><a class="viewcode-back" href="../../package.html#package.UI.Fram.newLogo">[docs]</a>    <span class="k">def</span> <span class="nf">newLogo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">wwith</span><span class="p">,</span><span class="n">wheigth</span><span class="p">,</span><span class="n">icon</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">QLabel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Crée et retourne un nouveau QLabel avec une icône spécifiée.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        </span>
+<span class="sd">            left (int): La position horizontale du coin supérieur gauche du QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">            top (int): La position verticale du coin supérieur gauche du QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">            wwith (int): La largeur du QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">            wheigth (int): La hauteur du QLabel.</span>
+<span class="sd">            </span>
+<span class="sd">            icon (str): Le chemin de l&#39;image de fond à utiliser pour le QLabel.</span>
+<span class="sd">                        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        </span>
+<span class="sd">            QLabel: Un nouveau QLabel avec les propriétés spécifiées.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">)</span>
+        <span class="n">pixmap</span> <span class="o">=</span> <span class="n">QPixmap</span><span class="p">(</span><span class="n">icon</span><span class="p">)</span><span class="o">.</span><span class="n">scaled</span><span class="p">(</span><span class="n">wwith</span><span class="p">,</span><span class="n">wheigth</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">pixmap</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">name</span></div>
+<div class="viewcode-block" id="Fram.closeFrame"><a class="viewcode-back" href="../../package.html#package.UI.Fram.closeFrame">[docs]</a>    <span class="k">def</span> <span class="nf">closeFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Ferme la fenêtre Frame.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True si la fenêtre est fermée, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Fram.showFrame"><a class="viewcode-back" href="../../package.html#package.UI.Fram.showFrame">[docs]</a>    <span class="k">def</span> <span class="nf">showFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Affiche la fenêtre Frame.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Fram.newTable"><a class="viewcode-back" href="../../package.html#package.UI.Fram.newTable">[docs]</a>    <span class="k">def</span> <span class="nf">newTable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">top</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">lwith</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">lheigth</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">styleCSS</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">row</span><span class="p">:</span><span class="nb">int</span><span class="o">|</span><span class="kc">None</span><span class="p">,</span><span class="n">col</span><span class="p">:</span><span class="nb">int</span><span class="o">|</span><span class="kc">None</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">QTableWidget</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Crée une nouvelle instance de QTableWidget.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            left (int): Coordonnée horizontale de la table.</span>
+<span class="sd">            </span>
+<span class="sd">            top (int): Coordonnée verticale de la table.</span>
+<span class="sd">            </span>
+<span class="sd">            lwith (int): Largeur de la table.</span>
+<span class="sd">            </span>
+<span class="sd">            lheigth (int): Hauteur de la table.</span>
+<span class="sd">            </span>
+<span class="sd">            styleCSS (str): Chaîne de style CSS à appliquer à la table.</span>
+<span class="sd">            </span>
+<span class="sd">            row (int|None): Nombre de lignes de la table. Par défaut None.</span>
+<span class="sd">            </span>
+<span class="sd">            col (int|None): Nombre de colonnes de la table. Par défaut None.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            QTableWidget: Nouvelle instance de QTableWidget.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">table</span><span class="o">=</span><span class="n">QTableWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">lwith</span><span class="p">,</span><span class="n">lheigth</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">row</span><span class="o">!=</span><span class="kc">None</span> <span class="p">:</span>
+            <span class="n">table</span><span class="o">.</span><span class="n">setRowCount</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">col</span><span class="o">!=</span><span class="kc">None</span> <span class="p">:</span>
+            <span class="n">table</span><span class="o">.</span><span class="n">setColumnCount</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span>
+                          <span class="s2">&quot;QTableWidget&quot;</span>
+                          <span class="s2">&quot;{&quot;</span>
+                          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">styleCSS</span><span class="si">}</span><span class="s1">&#39;</span>
+                          <span class="s2">&quot;}&quot;</span>
+                          <span class="s2">&quot;QTableWidget::item&quot;</span>
+                          <span class="s2">&quot;{&quot;</span>
+                          <span class="s1">&#39;padding-left:5px;padding-right:5px;text-align:center;&#39;</span>
+                          <span class="s2">&quot;}&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">table</span></div>
+<div class="viewcode-block" id="Fram.newFrameGraphe"><a class="viewcode-back" href="../../package.html#package.UI.Fram.newFrameGraphe">[docs]</a>    <span class="k">def</span> <span class="nf">newFrameGraphe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">left</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">top</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">width</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">height</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">graphe</span><span class="p">:</span><span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="o">|</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">,</span><span class="n">flag</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">listDijikstra</span><span class="p">:</span><span class="nb">list</span><span class="o">|</span><span class="kc">None</span><span class="p">,</span><span class="n">grapheHelper</span><span class="p">:</span><span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="o">|</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Crée et retourne un nouveau cadre qui contient un graphe dessiné à l&#39;aide de la bibliothèque NetworkX.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            left (int): La position en pixels à partir de la gauche de la fenêtre parente où le cadre sera dessiné.</span>
+<span class="sd">            </span>
+<span class="sd">            top (int): La position en pixels à partir du haut de la fenêtre parente où le cadre sera dessiné.</span>
+<span class="sd">            </span>
+<span class="sd">            width (int): La largeur en pixels du cadre.</span>
+<span class="sd">            </span>
+<span class="sd">            height (int): La hauteur en pixels du cadre.</span>
+<span class="sd">            </span>
+<span class="sd">            graphe (nx.Graph | nx.DiGraph): Le graphe NetworkX à dessiner. Peut être soit un graphe non-dirigé, soit un graphe dirigé.</span>
+<span class="sd">            </span>
+<span class="sd">            flag (str): Un indicateur qui spécifie quelle méthode a été utilisée pour dessiner le graphe. Les valeurs possibles sont : &#39;graphe&#39;, &#39;prim&#39;, &#39;kruskal&#39;, &#39;dijkstra&#39;, &#39;default&#39;.</span>
+<span class="sd">            </span>
+<span class="sd">            listDijikstra (list | None): Une liste optionnelle de nœuds qui seront colorés en vert si la méthode de dessin est &#39;dijkstra&#39;. Sinon, doit être None.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            QFrame: Un nouveau cadre qui contient le graphe dessiné.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">QFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">top</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="n">G</span><span class="o">=</span><span class="n">graphe</span>
+        <span class="n">H</span><span class="o">=</span><span class="n">grapheHelper</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">flag</span><span class="o">==</span><span class="s1">&#39;graphe&#39;</span> <span class="p">:</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">flag</span> <span class="o">==</span> <span class="s1">&#39;warshall&#39;</span><span class="p">:</span>
+            <span class="n">edge_colors</span><span class="o">=</span><span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">H</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+                    <span class="n">edge_colors</span><span class="o">+=</span><span class="p">[</span><span class="s2">&quot;#08052f&quot;</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">edge_colors</span><span class="o">+=</span><span class="p">[</span><span class="s2">&quot;#fd6510&quot;</span><span class="p">]</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">edge_colors</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">&quot;#37a1f0&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">flag</span><span class="o">==</span><span class="s1">&#39;prim&#39;</span><span class="p">:</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="s2">&quot;#03C988&quot;</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">flag</span><span class="o">==</span><span class="s2">&quot;kruskal&quot;</span><span class="p">:</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="s2">&quot;#CCD5AE&quot;</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">flag</span><span class="o">==</span><span class="s1">&#39;dijkstra&#39;</span><span class="p">:</span>
+            <span class="n">path_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">listDijikstra</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">listDijikstra</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">listDijikstra</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+            <span class="n">path_subgraph</span> <span class="o">=</span> <span class="n">graphe</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">path_edges</span><span class="p">)</span>
+            <span class="n">node_colors</span><span class="o">=</span><span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">listDijikstra</span><span class="p">:</span>
+                    <span class="n">node_colors</span><span class="o">+=</span><span class="p">[</span><span class="s2">&quot;#9DF1DF&quot;</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">node_colors</span><span class="o">+=</span><span class="p">[</span><span class="s2">&quot;#FFEA20&quot;</span><span class="p">]</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">path_subgraph</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s2">&quot;#9DF1DF&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">flag</span><span class="o">==</span><span class="s2">&quot;bellman_ford&quot;</span><span class="p">:</span>
+            <span class="n">path_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">listDijikstra</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">listDijikstra</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">listDijikstra</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+            <span class="n">path_subgraph</span> <span class="o">=</span> <span class="n">graphe</span><span class="o">.</span><span class="n">edge_subgraph</span><span class="p">(</span><span class="n">path_edges</span><span class="p">)</span>
+            <span class="n">node_colors</span><span class="o">=</span><span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">listDijikstra</span><span class="p">:</span>
+                    <span class="n">node_colors</span><span class="o">+=</span><span class="p">[</span><span class="s2">&quot;#e8dc78&quot;</span><span class="p">]</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="n">node_colors</span><span class="o">+=</span><span class="p">[</span><span class="s2">&quot;#FFEA20&quot;</span><span class="p">]</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">path_subgraph</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s2">&quot;#e8dc78&quot;</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="n">node_colors</span> <span class="o">=</span><span class="p">[</span><span class="s2">&quot;#FCC2FC&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">node_colors</span><span class="o">+=</span><span class="p">[</span><span class="s2">&quot;#C9F4AA&quot;</span><span class="p">]</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">edge_labels</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_edge_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+        <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">edge_labels</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">canvas</span> <span class="o">=</span> <span class="n">FigureCanvas</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+        <span class="n">name</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+        <span class="c1"># if flag==&#39;graphe&#39;:</span>
+        <span class="c1">#     canvas.print_figure(&#39;./public/image/graph.png&#39;)</span>
+        <span class="c1"># elif flag==&#39;bfs&#39;:</span>
+        <span class="c1">#     canvas.print_figure(&#39;./public/image/graph-bfs.png&#39;)</span>
+        <span class="c1"># elif flag==&#39;dfs&#39;:</span>
+        <span class="c1">#     canvas.print_figure(&#39;./public/image/graph-dfs.png&#39;)</span>
+        <span class="c1"># elif flag==&#39;dijkstra&#39;:</span>
+        <span class="c1">#     canvas.print_figure(&#39;./public/image/graph-dijkstra.png&#39;)</span>
+        <span class="c1"># elif flag==&quot;prim&quot;:</span>
+        <span class="c1">#     canvas.print_figure(&#39;./public/image/graph-prim.png&#39;)</span>
+        <span class="c1"># elif flag==&quot;warshall&quot;:</span>
+        <span class="c1">#     canvas.print_figure(&#39;./public/image/graph-warshall.png&#39;)</span>
+        <span class="c1"># elif flag==&quot;kruskal&quot;:</span>
+        <span class="c1">#     canvas.print_figure(&#39;./public/image/graph-kruskal.png&#39;)</span>
+        <span class="c1"># elif flag==&quot;bellman_ford&quot;:</span>
+        <span class="c1">#     canvas.print_figure(&#39;./public/image/graph-bellman-ford.png&#39;)</span>
+        <span class="k">return</span> <span class="n">name</span></div></div>
+    
+    
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, LAAMIRI Ouail.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

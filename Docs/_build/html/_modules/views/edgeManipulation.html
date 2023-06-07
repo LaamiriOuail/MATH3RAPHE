@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>views.edgeManipulation &mdash; Documentation Theorie de graphe 1.0.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Theorie de graphe
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">test-py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Theorie de graphe</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">views.edgeManipulation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de views.edgeManipulation</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QLineEdit</span>
+
+<div class="viewcode-block" id="EdgeComponent"><a class="viewcode-back" href="../../views.html#views.edgeManipulation.EdgeComponent">[docs]</a><span class="k">def</span> <span class="nf">EdgeComponent</span><span class="p">(</span><span class="n">container</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Créer les composants pour ajouter ou supprimer une arête dans un graphe.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        container: le conteneur où les composants seront ajoutés.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        </span>
+<span class="sd">        Un tuple contenant :</span>
+<span class="sd">        </span>
+<span class="sd">        le cadre principal contenant tous les autres cadres et composants</span>
+<span class="sd">        </span>
+<span class="sd">        le cadre pour l&#39;affichage du graphe (vide pour l&#39;instant)</span>
+<span class="sd">        </span>
+<span class="sd">        le cadre pour l&#39;ajout ou la suppression d&#39;une arête</span>
+<span class="sd">        </span>
+<span class="sd">        la liste déroulante pour sélectionner le type de graphe</span>
+<span class="sd">        </span>
+<span class="sd">        le champ d&#39;entrée pour le sommet de départ</span>
+<span class="sd">        </span>
+<span class="sd">        le champ d&#39;entrée pour le sommet d&#39;arrivée</span>
+<span class="sd">        </span>
+<span class="sd">        le libellé pour le poids de l&#39;arête</span>
+<span class="sd">        </span>
+<span class="sd">        le champ d&#39;entrée pour le poids de l&#39;arête</span>
+<span class="sd">        </span>
+<span class="sd">        le bouton pour ajouter une arête</span>
+<span class="sd">        </span>
+<span class="sd">        le bouton pour supprimer une arête</span>
+<span class="sd">        </span>
+<span class="sd">        le bouton pour réinitialiser le graphe</span>
+<span class="sd">        </span>
+<span class="sd">        le bouton pour enregistrer le graphe</span>
+<span class="sd">        </span>
+<span class="sd">        le libellé pour afficher un message après l&#39;ajout ou la suppression d&#39;une arête.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">frame_graphe_manipulation</span><span class="o">=</span><span class="n">container</span><span class="o">.</span><span class="n">newFram</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:none;&#39;</span><span class="p">)</span>
+    <span class="c1"># frame_graphe_rep_nx=frame_graphe_manipulation.newFram(0,0,300,300,None,None)</span>
+    <span class="n">frame_add_del_edge</span><span class="o">=</span><span class="n">frame_graphe_manipulation</span><span class="o">.</span><span class="n">newFram</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:none;&#39;</span><span class="p">)</span>
+    <span class="n">input_sommet_depart</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newInput</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="mi">65</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">sommet_depart</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="s1">&#39;font-size:15px;&#39;</span><span class="p">,</span><span class="s1">&#39;Sommet de depart&#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">sommet_arriver</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="s1">&#39;font-size:15px;&#39;</span><span class="p">,</span><span class="s1">&#39;Sommet d</span><span class="se">\&#39;</span><span class="s1">arrive&#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">input_sommet_arriver</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newInput</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">poids_arrete</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="s1">&#39;font-size:15px;&#39;</span><span class="p">,</span><span class="s1">&#39;Poids&#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">poids_arrete</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">input_poids_arrete</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newInput</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="mi">118</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">input_poids_arrete</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ajouter_arrete</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newButton</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;background-color:white;color:black&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:black;color:white&#39;</span><span class="p">,</span><span class="s1">&#39;Ajouter&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">supprimer_arrete</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newButton</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;background-color:black;color:white&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:white;color:black&#39;</span><span class="p">,</span><span class="s1">&#39;Supprimer&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">initialiser_graphe</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newButton</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">170</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;background-color:black;color:white&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:white;color:black&#39;</span><span class="p">,</span><span class="s1">&#39;Initialiser&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">enregistrer_graphe</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newButton</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span><span class="mi">170</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;background-color:white;color:black&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:black;color:white&#39;</span><span class="p">,</span><span class="s1">&#39;Enregistrer&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">note_ajouter_edge</span> <span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">275</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;color:white;font-size:12px;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">type_graphe</span><span class="o">=</span><span class="n">frame_add_del_edge</span><span class="o">.</span><span class="n">newComboBox</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="s1">&#39;Non-orientés&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:black;color:white;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">type_graphe</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s1">&#39;Orientés&#39;</span><span class="p">)</span>
+    <span class="n">type_graphe</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s1">&#39;Non-orientés pondérés&#39;</span><span class="p">)</span>
+    <span class="n">type_graphe</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s1">&#39;Orientés pondérés&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">frame_graphe_manipulation</span><span class="p">,</span><span class="n">frame_add_del_edge</span><span class="p">,</span><span class="n">type_graphe</span><span class="p">,</span><span class="n">input_sommet_depart</span><span class="p">,</span><span class="n">input_sommet_arriver</span><span class="p">,</span><span class="n">poids_arrete</span><span class="p">,</span><span class="n">input_poids_arrete</span><span class="p">,</span><span class="n">ajouter_arrete</span><span class="p">,</span><span class="n">supprimer_arrete</span><span class="p">,</span><span class="n">initialiser_graphe</span><span class="p">,</span><span class="n">enregistrer_graphe</span><span class="p">,</span><span class="n">note_ajouter_edge</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, LAAMIRI Ouail.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

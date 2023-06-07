@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>package package &mdash; Documentation Theorie de graphe 1.0.0</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="views package" href="views.html" />
+    <link rel="prev" title="controller package" href="controller.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Theorie de graphe
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">test-py</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="controller.html">controller package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">package package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-package.DBG">package.DBG module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#package.DBG.DBG"><code class="docutils literal notranslate"><span class="pre">DBG</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-package.Graphe">package.Graphe module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#package.Graphe.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-package.UI">package.UI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#package.UI.Fram"><code class="docutils literal notranslate"><span class="pre">Fram</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#package.UI.Window"><code class="docutils literal notranslate"><span class="pre">Window</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-package">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">views package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Theorie de graphe</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">test-py</a></li>
+      <li class="breadcrumb-item active">package package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/package.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="package-package">
+<h1>package package<a class="headerlink" href="#package-package" title="Lien permanent vers cette rubrique"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Lien permanent vers cette rubrique"></a></h2>
+</section>
+<section id="module-package.DBG">
+<span id="package-dbg-module"></span><h2>package.DBG module<a class="headerlink" href="#module-package.DBG" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="package.DBG.DBG">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">package.DBG.</span></span><span class="sig-name descname"><span class="pre">DBG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/DBG.html#DBG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.DBG.DBG" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span></code></p>
+<p>Connexion à une base de données SQLite.</p>
+<p>Cette classe hérite de la classe <cite>sqlite3.Connection</cite> et ajoute des méthodes pour insérer, sélectionner et supprimer des enregistrements dans une table spécifique de la base de données.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>database (str): Le nom de la base de données.</p>
+</dd>
+<dt>Attributes:</dt><dd><p>_dataBase (str): Le chemin vers la base de données.</p>
+</dd>
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>__init__(self, database: str) -&gt; None:</dt><dd><p>Initialise une nouvelle connexion à la base de données spécifiée.</p>
+</dd>
+<dt>insert(self, date: str, heur: str, orienter: str, pondere: str, sommet: str, arc: str) -&gt; bool:</dt><dd><p>Insère un nouveau enregistrement dans la table « graphe ».</p>
+</dd>
+<dt>selectAll(self) -&gt; list|bool:</dt><dd><p>Sélectionne tous les enregistrements de la table « graphe ».</p>
+</dd>
+<dt>nbrData(self) -&gt; int:</dt><dd><p>Récupère le nombre total d’enregistrements dans la table « graphe ».</p>
+</dd>
+<dt>delete(self, id: int) -&gt; bool:</dt><dd><p>Supprime un enregistrement spécifié de la table « graphe ».</p>
+</dd>
+<dt>deleteAll(self) -&gt; bool:</dt><dd><p>Supprime tous les enregistrements de la table « graphe ».</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="package.DBG.DBG.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/DBG.html#DBG.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.DBG.DBG.delete" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Supprime l’enregistrement correspondant à l’ID spécifié de la table « graphe ».</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>id (int): L’ID de l’enregistrement à supprimer.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True si l’enregistrement a été supprimé avec succès, False sinon.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.DBG.DBG.deleteAll">
+<span class="sig-name descname"><span class="pre">deleteAll</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/DBG.html#DBG.deleteAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.DBG.DBG.deleteAll" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Supprime tous les enregistrements de la table « graphe ».</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: True si tous les enregistrements ont été supprimés avec succès, False sinon.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.DBG.DBG.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heur</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orienter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pondere</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sommet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/DBG.html#DBG.insert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.DBG.DBG.insert" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Insère un nouveau enregistrement dans la table « graphe ».</p>
+<dl>
+<dt>Args:</dt><dd><p>date (str): La date de l’enregistrement.</p>
+<p>heur (str): L’heure de l’enregistrement.</p>
+<p>orienter (str): La direction de « graphe ».</p>
+<p>pondere (str): La pondération de « graphe ».</p>
+<p>sommet (str): Liste des sommets de « graphe ».</p>
+<p>arc (str): Liste des arretes(arcs) de « graphe ».</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True si l’enregistrement a été inséré avec succès, False sinon.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.DBG.DBG.nbrData">
+<span class="sig-name descname"><span class="pre">nbrData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/package/DBG.html#DBG.nbrData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.DBG.DBG.nbrData" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Récupère le nombre total d’enregistrements dans la table « graphe ».</p>
+<dl>
+<dt>Returns:</dt><dd><p>int: Le nombre total d’enregistrements dans la table.</p>
+<p>int: -1 si une erreur s’est produite lors de l’exécution de la requête.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.DBG.DBG.selectAll">
+<span class="sig-name descname"><span class="pre">selectAll</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/DBG.html#DBG.selectAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.DBG.DBG.selectAll" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Sélectionne tous les enregistrements de la table « graphe ».</p>
+<dl>
+<dt>Returns:</dt><dd><p>list: Une liste contenant tous les enregistrements de la table.</p>
+<p>bool: False si une erreur s’est produite lors de l’exécution de la requête.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-package.Graphe">
+<span id="package-graphe-module"></span><h2>package.Graphe module<a class="headerlink" href="#module-package.Graphe" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="package.Graphe.Graph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">package.Graphe.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pondere</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/Graphe.html#Graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe singleton qui représente un graphe orienté ou non orienté avec ou sans pondération.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>directed (bool): True si le graphe est orienté, False sinon.</p>
+<p>pondere (bool): True si le graphe est pondéré, False sinon.</p>
+<p>instance (Graph): Instance unique de la classe Graph.</p>
+<p>graphe (nx.Graph|nx.DiGraph): Graphe du réseau créé avec la bibliothèque NetworkX.</p>
+</dd>
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>get_instance(cls, directed: bool, pondere: bool) -&gt; nx.Graph|nx.DiGraph:</dt><dd><p>Crée une instance de la classe Graph s’il n’en existe pas déjà une et la retourne.</p>
+</dd>
+<dt>init(self) -&gt; None:</dt><dd><p>Réinitialise le graphe.</p>
+</dd>
+<dt>add_vertex(self, vertex) -&gt; None:</dt><dd><p>Ajoute un sommet au graphe.</p>
+</dd>
+<dt>add_edge(self, vertex1: str, vertex2: str) -&gt; None:</dt><dd><p>Ajoute une arête non pondérée entre deux sommets au graphe.</p>
+</dd>
+<dt>add_edge_value(self, vertex1: str, vertex2: str, value: float) -&gt; None:</dt><dd><p>Ajoute une arête pondérée entre deux sommets au graphe.</p>
+</dd>
+<dt>get_neighbors(self, vertex: str) -&gt; list:</dt><dd><p>Retourne une liste des voisins du sommet donné en argument.</p>
+</dd>
+<dt>remove_vertex(self, vertex: str) -&gt; None:</dt><dd><p>Retire un sommet du graphe.</p>
+</dd>
+<dt>remove_edge(self, vertex1: str, vertex2: str) -&gt; None:</dt><dd><p>Retire une arête entre deux sommets du graphe.</p>
+</dd>
+<dt>getVertex(self) -&gt; list:</dt><dd><p>Retourne une liste des sommets du graphe.</p>
+</dd>
+<dt>bfs(self, start: str) -&gt; list:</dt><dd><p>Parcours en largeur du graphe à partir du sommet de départ donné en argument.</p>
+</dd>
+<dt>dfs(self, start: str) -&gt; list:</dt><dd><p>Parcours en profondeur du graphe à partir du sommet de départ donné en argument.</p>
+</dd>
+<dt>isDirected(self) -&gt; bool:</dt><dd><p>Retourne True si le graphe est orienté, False sinon.</p>
+</dd>
+<dt>isPondere(self) -&gt; bool:</dt><dd><p>Retourne True si le graphe est pondéré, False sinon.</p>
+</dd>
+<dt>isEulerian(self) -&gt; bool:</dt><dd><p>Retourne True si le graphe est eulérien, False sinon.</p>
+</dd>
+<dt>isPlanaire(self) -&gt; bool:</dt><dd><p>Retourne True si le graphe est planaire, False sinon.</p>
+</dd>
+<dt>isConnexe(self) -&gt; bool:</dt><dd><p>Retourne True si le graphe est connexe, False sinon.</p>
+</dd>
+<dt>toDirectedPondere(self) -&gt; None:</dt><dd><p>Transforme le graphe en graphe orienté pondéré.</p>
+</dd>
+<dt>toUnDirectedPondere(self) -&gt; None:</dt><dd><p>Transforme le graphe en graphe non orienté pondéré.</p>
+</dd>
+<dt>toDirected(self) -&gt; None:</dt><dd><p>Transforme le graphe en graphe orienté non pondéré.</p>
+</dd>
+<dt>toUnDirected(self) -&gt; None:</dt><dd><p>Transforme le graphe en graphe non orienté non pondéré.</p>
+</dd>
+<dt>isVide(self) -&gt; bool:</dt><dd><p>Retourne True si le graphe est vide, False sinon</p>
+</dd>
+</dl>
+</dd>
+<dt>Raises:</dt><dd><p>Exception: Si une deuxième instance de la classe Graph est créée.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.add_edge">
+<span class="sig-name descname"><span class="pre">add_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.add_edge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.add_edge" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Ajoute une arête non pondérée entre deux sommets au graphe.</p>
+<dl>
+<dt>Args:</dt><dd><p>vertex1 (str): Nom du premier sommet.</p>
+<p>vertex2 (str): Nom du deuxième sommet.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.add_edge_value">
+<span class="sig-name descname"><span class="pre">add_edge_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.add_edge_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.add_edge_value" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Ajoute une arête pondérée entre deux sommets au graphe.</p>
+<dl>
+<dt>Args:</dt><dd><p>vertex1 (str): Nom du premier sommet.</p>
+<p>vertex2 (str): Nom du deuxième sommet.</p>
+<p>value (float): Poids de l’arête à ajouter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.add_vertex">
+<span class="sig-name descname"><span class="pre">add_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.add_vertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.add_vertex" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Ajoute un sommet au graphe.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>vertex (str): Nom du sommet à ajouter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.bfs">
+<span class="sig-name descname"><span class="pre">bfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/Graphe.html#Graph.bfs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.bfs" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Parcours en largeur du graphe à partir du sommet de départ donné en argument.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>start (str): Nom du sommet de départ.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list: Liste des noms des sommets visités lors du parcours en largeur.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.dfs">
+<span class="sig-name descname"><span class="pre">dfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/Graphe.html#Graph.dfs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.dfs" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Effectue une recherche en profondeur (DFS) à partir du nœud start.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>start (str): Le nœud de départ de la recherche en profondeur.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Une liste de nœuds dans l’ordre où ils ont été visités par la recherche en profondeur.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getBfsGraphe">
+<span class="sig-name descname"><span class="pre">getBfsGraphe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getBfsGraphe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getBfsGraphe" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne l’arbre de parcours en largeur (BFS) à partir du sommet source.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>source (str): Le sommet source pour le parcours en largeur.</p>
+</dd>
+<dt>Returns:</dt><dd><p>nx.DiGraph: L’arbre de parcours en largeur à partir du sommet source.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getDegreeSommets">
+<span class="sig-name descname"><span class="pre">getDegreeSommets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getDegreeSommets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getDegreeSommets" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne un dictionnaire contenant les degrés de chaque sommet du graphe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: Dictionnaire contenant les degrés des sommets.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getDensite">
+<span class="sig-name descname"><span class="pre">getDensite</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getDensite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getDensite" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Calcule la densité du graphe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>float : La densité du graphe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getDfsGraphe">
+<span class="sig-name descname"><span class="pre">getDfsGraphe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getDfsGraphe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getDfsGraphe" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne l’arbre de parcours en profondeur (DFS) à partir du sommet source.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>source (str): Le sommet source pour le parcours en profondeur.</p>
+</dd>
+<dt>Returns:</dt><dd><p>nx.DiGraph: L’arbre de parcours en profondeur à partir du sommet source.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getKruskalGraphe">
+<span class="sig-name descname"><span class="pre">getKruskalGraphe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getKruskalGraphe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getKruskalGraphe" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne l’arbre de poids minimum (MST) du sous-graphe connexe de self.__graphe contenant le nœud source, calculé en utilisant l’algorithme de Kruskal.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>source (str) : Le nom du nœud de départ.</p>
+</dd>
+<dt>Returns:</dt><dd><p>mst (nx.Graph) : L’arbre de poids minimum (MST) du sous-graphe connexe de self.__graphe contenant le nœud source, calculé en utilisant l’algorithme de Kruskal.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getListeArrete">
+<span class="sig-name descname"><span class="pre">getListeArrete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getListeArrete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getListeArrete" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne un dictionnaire contenant les arêtes du graphe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: Dictionnaire contenant les arêtes du graphe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getListeBellmanFord">
+<span class="sig-name descname"><span class="pre">getListeBellmanFord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pointFinal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getListeBellmanFord"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getListeBellmanFord" title="Lien permanent vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getListeDijkstra">
+<span class="sig-name descname"><span class="pre">getListeDijkstra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pointFinal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getListeDijkstra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getListeDijkstra" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne une liste contenant le chemin le plus court entre la source et le point final
+en utilisant l’algorithme de Dijkstra.</p>
+<dl>
+<dt>Args:</dt><dd><p>source (str) : Le nœud source du chemin.</p>
+<p>pointFinal (str) : Le nœud final du chemin.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list : La liste contenant le chemin le plus court.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getListeSommet">
+<span class="sig-name descname"><span class="pre">getListeSommet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getListeSommet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getListeSommet" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne une liste contenant tous les sommets du graphe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list: Liste contenant tous les sommets du graphe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getMatriceAdjacent">
+<span class="sig-name descname"><span class="pre">getMatriceAdjacent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getMatriceAdjacent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getMatriceAdjacent" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne une liste représentant la matrice d’adjacence du graphe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list: Liste représentant la matrice d’adjacence du graphe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getMatriceIncidence">
+<span class="sig-name descname"><span class="pre">getMatriceIncidence</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getMatriceIncidence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getMatriceIncidence" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne une liste représentant la matrice d’incidence du graphe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list: Liste représentant la matrice d’incidence du graphe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getNetworkxGraph">
+<span class="sig-name descname"><span class="pre">getNetworkxGraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Graph</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getNetworkxGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getNetworkxGraph" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode retourne le graphe sous forme d’un objet Networkx Graph ou DiGraph.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>nx.Graph|nx.DiGraph : le graphe sous forme d’un objet Networkx Graph ou DiGraph.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getNombreArrete">
+<span class="sig-name descname"><span class="pre">getNombreArrete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getNombreArrete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getNombreArrete" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne le nombre d’arêtes dans le graphe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>int: Le nombre d’arêtes dans le graphe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getNombreSommet">
+<span class="sig-name descname"><span class="pre">getNombreSommet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getNombreSommet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getNombreSommet" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode retourne le nombre de sommets dans le graphe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>int : le nombre de sommets dans le graphe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getPrimGraphe">
+<span class="sig-name descname"><span class="pre">getPrimGraphe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getPrimGraphe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getPrimGraphe" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne l’arbre de poids minimum (MST) du sous-graphe connexe de self.__graphe contenant le nœud source.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>source (str) : Le nom du nœud de départ.</p>
+</dd>
+<dt>Returns:</dt><dd><p>mst (nx.Graph) : L’arbre de poids minimum (MST) du sous-graphe connexe de self.__graphe contenant le nœud source.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getVertex">
+<span class="sig-name descname"><span class="pre">getVertex</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getVertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getVertex" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne une liste des sommets du graphe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list: Liste des noms des sommets du graphe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getVideGraphe">
+<span class="sig-name descname"><span class="pre">getVideGraphe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Graph</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getVideGraphe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getVideGraphe" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne un graphe vide.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>nx.Graph : Un graphe vide.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.getWarshallGraphe">
+<span class="sig-name descname"><span class="pre">getWarshallGraphe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.getWarshallGraphe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.getWarshallGraphe" title="Lien permanent vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.get_instance">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pondere</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Graph</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DiGraph</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.get_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.get_instance" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Renvoie l’instance unique de la classe Graph ou crée une nouvelle instance si elle n’existe pas encore.</p>
+<dl>
+<dt>Args:</dt><dd><p>directed (bool) : True si le graphe est orienté, False sinon.</p>
+<p>pondere (bool) : True si le graphe est pondéré, False sinon.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Graph.__instance : L’instance unique de la classe Graph.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.get_neighbors">
+<span class="sig-name descname"><span class="pre">get_neighbors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.get_neighbors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.get_neighbors" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retourne une liste des voisins du sommet donné en argument.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>vertex (str): Nom du sommet dont on veut connaître les voisins.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list: Liste des noms des voisins du sommet donné en argument.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.init" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Réinitialise le graphe.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.isAllPositive">
+<span class="sig-name descname"><span class="pre">isAllPositive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.isAllPositive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.isAllPositive" title="Lien permanent vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.isConnexe">
+<span class="sig-name descname"><span class="pre">isConnexe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.isConnexe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.isConnexe" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Vérifie si le graphe est connexe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>True si le graphe est connexe, False sinon.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.isDirected">
+<span class="sig-name descname"><span class="pre">isDirected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.isDirected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.isDirected" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Renvoie True si le graphe est orienté, False sinon.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.isEulerian">
+<span class="sig-name descname"><span class="pre">isEulerian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.isEulerian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.isEulerian" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Vérifie si le graphe est eulérien.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>True si le graphe est eulérien, False sinon.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.isPlanaire">
+<span class="sig-name descname"><span class="pre">isPlanaire</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.isPlanaire"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.isPlanaire" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Vérifie si le graphe est planaire.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>True si le graphe est planaire, False sinon.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.isPondere">
+<span class="sig-name descname"><span class="pre">isPondere</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.isPondere"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.isPondere" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Renvoie True si le graphe est pondéré, False sinon.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.isVide">
+<span class="sig-name descname"><span class="pre">isVide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.isVide"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.isVide" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode vérifie si le graphe est vide.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool : True si le graphe est vide, False sinon.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.remove_edge">
+<span class="sig-name descname"><span class="pre">remove_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/Graphe.html#Graph.remove_edge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.remove_edge" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retire une arête entre deux sommets du graphe.</p>
+<dl>
+<dt>Args:</dt><dd><p>vertex1 (str): Nom du premier sommet.</p>
+<p>vertex2 (str): Nom du deuxième sommet.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.remove_vertex">
+<span class="sig-name descname"><span class="pre">remove_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/Graphe.html#Graph.remove_vertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.remove_vertex" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Retire un sommet du graphe.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>vertex (str): Nom du sommet à retirer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.toDirected">
+<span class="sig-name descname"><span class="pre">toDirected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.toDirected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.toDirected" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode permet de transformer un graphe non orienté et non pondéré en graphe orienté et non pondéré.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.toDirectedPondere">
+<span class="sig-name descname"><span class="pre">toDirectedPondere</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.toDirectedPondere"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.toDirectedPondere" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode permet de transformer un graphe non orienté et pondéré en graphe orienté et pondéré.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.toUnDirected">
+<span class="sig-name descname"><span class="pre">toUnDirected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.toUnDirected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.toUnDirected" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode permet de transformer un graphe orienté et non pondéré en graphe non orienté et non pondéré.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.Graphe.Graph.toUnDirectedPondere">
+<span class="sig-name descname"><span class="pre">toUnDirectedPondere</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/package/Graphe.html#Graph.toUnDirectedPondere"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.Graphe.Graph.toUnDirectedPondere" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode permet de transformer un graphe orienté et pondéré en graphe non orienté et pondéré.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-package.UI">
+<span id="package-ui-module"></span><h2>package.UI module<a class="headerlink" href="#module-package.UI" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="package.UI.Fram">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">package.UI.</span></span><span class="sig-name descname"><span class="pre">Fram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#package.UI.Window" title="package.UI.Window"><span class="pre">Window</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">QWidget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wwith</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheigth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bakgroundImage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styleCSS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/UI.html#Fram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">QFrame</span></code></p>
+<p>Classe Frame personnalisée basée sur QFrame qui peut contenir des widgets et qui prend en charge la personnalisation 
+de la feuille de style CSS, la création de boutons, de libellés et d’entrées de texte avec des propriétés spécifiques.</p>
+<dl>
+<dt>Args:</dt><dd><p>window (Union[Window, QWidget]): Une référence à la fenêtre parente.</p>
+<p>left (int): La position horizontale du cadre par rapport à la fenêtre parente.</p>
+<p>top (int): La position verticale du cadre par rapport à la fenêtre parente.</p>
+<p>width (int): La largeur du cadre.</p>
+<p>height (int): La hauteur du cadre.</p>
+<p>background_image (str|None): Le chemin d’accès de l’image d’arrière-plan du cadre. None par défaut.</p>
+<p>style_css (str|None): Les styles CSS à appliquer au cadre. None par défaut.</p>
+</dd>
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>__init__(self, window: Union[Window, QWidget], left: int, top: int, width: int, height: int, background_image: Optional[str] = None, style_css: Optional[str] = None) -&gt; None:</dt><dd><p>Initialise une instance de la classe Frame.</p>
+</dd>
+<dt>newButton(self, left: int, top: int, width: int, height: int, styleCSS: str, hoverStyleCss: str, title: str, icon: str, event: Optional[Callable[…, Any]] = None) -&gt; QPushButton:</dt><dd><p>Crée et retourne un bouton avec des styles CSS et des actions personnalisées.</p>
+</dd>
+<dt>newLabel(self, left: int, top: int, width: int, height: int, styleCSS: str, titleHTML: str, textCenter: Union[bool, int]) -&gt; QLabel:</dt><dd><p>Créer et retourne un QLabel avec des propriétés spécifiques.</p>
+</dd>
+<dt>newInput(self, left: int, top: int, width: int, height: int, style: str, placeholder: str, textCenter: Union[bool, int], passwordInput: Union[bool, int]) -&gt; QLineEdit:</dt><dd><p>Créer et retourne un QLineEdit avec des propriétés spécifiques.</p>
+</dd>
+<dt>newComboBox(self, left: int, top: int, iwith: int, iheight: int, firstItem: str, styleCSS: str, hoverStyleCss: str) -&gt; QComboBox:</dt><dd><p>Crée et retourne un nouveau QComboBox.</p>
+</dd>
+<dt>newFram(self, left: int, top: int, wwith: int, wheigth: int, backgroundImage: str, styleCSS: str) -&gt; QFrame:</dt><dd><p>Crée un nouveau QFrame avec les propriétés spécifiées.</p>
+</dd>
+<dt>newLogo(self, left: int, top: int, wwith: int, wheigth: int, icon: str) -&gt; QLabel:</dt><dd><p>Crée et retourne un nouveau QLabel avec une icône spécifiée.</p>
+</dd>
+<dt>closeFrame(self) -&gt; bool:</dt><dd><p>Ferme la fenêtre Frame.</p>
+</dd>
+<dt>showFrame(self) -&gt; None:</dt><dd><p>Affiche la fenêtre Frame.</p>
+</dd>
+<dt>newTable(self, left:int, top:int, lwith:int, lheigth:int, styleCSS:str, row:int|None, col:int|None) -&gt; QTableWidget:</dt><dd><p>Crée une nouvelle instance de QTableWidget.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Fram.closeFrame">
+<span class="sig-name descname"><span class="pre">closeFrame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/package/UI.html#Fram.closeFrame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram.closeFrame" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Ferme la fenêtre Frame.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: True si la fenêtre est fermée, False sinon.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Fram.newButton">
+<span class="sig-name descname"><span class="pre">newButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwith</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lheigth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styleCSS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hoverStyleCss</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QPushButton</span></span></span><a class="reference internal" href="_modules/package/UI.html#Fram.newButton"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram.newButton" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée et retourne un bouton avec des styles CSS et des actions personnalisées.</p>
+<dl>
+<dt>Args:</dt><dd><p>left (int): Position horizontale du bouton.</p>
+<p>top (int): Position verticale du bouton.</p>
+<p>lwith (int): Largeur du bouton.</p>
+<p>lheigth (int): Hauteur du bouton.</p>
+<p>styleCSS (str): Feuille de style CSS pour le bouton.</p>
+<p>hoverStyleCss (str): Feuille de style CSS pour le survol du bouton.</p>
+<p>title (str): Titre du bouton.</p>
+<p>icon (str): Chemin d’accès à l’icône du bouton.</p>
+<p>event (Optional[Callable[…, Any]], optional): Fonction de rappel pour l’action personnalisée du bouton. Defaults to None.</p>
+</dd>
+<dt>Returns:</dt><dd><p>QPushButton: Instance du bouton créé.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Fram.newComboBox">
+<span class="sig-name descname"><span class="pre">newComboBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iwith</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iheight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstItem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styleCSS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hoverStyleCss</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QComboBox</span></span></span><a class="reference internal" href="_modules/package/UI.html#Fram.newComboBox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram.newComboBox" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée et retourne un nouveau QComboBox.</p>
+<dl>
+<dt>Args:</dt><dd><p>left (int): La position X du coin supérieur gauche de la liste déroulante.</p>
+<p>top (int): La position Y du coin supérieur gauche de la liste déroulante.</p>
+<p>iwith (int): La largeur de la liste déroulante.</p>
+<p>iheight (int): La hauteur de la liste déroulante.</p>
+<p>firstItem (str): Le premier élément de la liste déroulante.</p>
+<p>styleCSS (str): La feuille de style CSS appliquée à la liste déroulante.</p>
+<p>hoverStyleCss (str): La feuille de style CSS appliquée à la liste déroulante lorsqu’elle est survolée.</p>
+</dd>
+<dt>Returns:</dt><dd><p>QComboBox: Le nouveau QComboBox créé.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Fram.newFram">
+<span class="sig-name descname"><span class="pre">newFram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wwith</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheigth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bakgroundImage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styleCSS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QFrame</span></span></span><a class="reference internal" href="_modules/package/UI.html#Fram.newFram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram.newFram" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée un nouveau QFrame avec les propriétés spécifiées.</p>
+<dl>
+<dt>Args:</dt><dd><p>left (int): La position horizontale du coin supérieur gauche du QFrame.</p>
+<p>top (int): La position verticale du coin supérieur gauche du QFrame.</p>
+<p>wwith (int): La largeur du QFrame.</p>
+<p>wheigth (int): La hauteur du QFrame.</p>
+<p>backgroundImage (str): Le chemin de l’image de fond à utiliser pour le QFrame.</p>
+<p>styleCSS (str): La feuille de style CSS à utiliser pour le QFrame.</p>
+</dd>
+<dt>Returns:</dt><dd><p>QFrame: Un nouveau QFrame avec les propriétés spécifiées.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Fram.newFrameGraphe">
+<span class="sig-name descname"><span class="pre">newFrameGraphe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graphe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listDijikstra</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grapheHelper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DiGraph</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QFrame</span></span></span><a class="reference internal" href="_modules/package/UI.html#Fram.newFrameGraphe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram.newFrameGraphe" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée et retourne un nouveau cadre qui contient un graphe dessiné à l’aide de la bibliothèque NetworkX.
+Args:</p>
+<blockquote>
+<div><p>left (int): La position en pixels à partir de la gauche de la fenêtre parente où le cadre sera dessiné.</p>
+<p>top (int): La position en pixels à partir du haut de la fenêtre parente où le cadre sera dessiné.</p>
+<p>width (int): La largeur en pixels du cadre.</p>
+<p>height (int): La hauteur en pixels du cadre.</p>
+<p>graphe (nx.Graph | nx.DiGraph): Le graphe NetworkX à dessiner. Peut être soit un graphe non-dirigé, soit un graphe dirigé.</p>
+<p>flag (str): Un indicateur qui spécifie quelle méthode a été utilisée pour dessiner le graphe. Les valeurs possibles sont : “graphe”, “prim”, “kruskal”, “dijkstra”, “default”.</p>
+<p>listDijikstra (list | None): Une liste optionnelle de nœuds qui seront colorés en vert si la méthode de dessin est “dijkstra”. Sinon, doit être None.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>QFrame: Un nouveau cadre qui contient le graphe dessiné.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Fram.newInput">
+<span class="sig-name descname"><span class="pre">newInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iwith</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iheight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placeholder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textCenter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passwordInput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QLineEdit</span></span></span><a class="reference internal" href="_modules/package/UI.html#Fram.newInput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram.newInput" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Créer et retourne un QLineEdit avec des propriétés spécifiques.</p>
+<dl>
+<dt>Args:</dt><dd><p>left (int): la position horizontale du coin supérieur gauche du QLineEdit.</p>
+<p>top (int): la position verticale du coin supérieur gauche du QLineEdit.</p>
+<p>iwith (int): la largeur du QLineEdit.</p>
+<p>iheight (int): la hauteur du QLineEdit.</p>
+<p>style (str): les propriétés CSS à appliquer au QLineEdit.</p>
+<p>placeholder (str): le texte à afficher dans le QLineEdit tant que l’utilisateur n’a pas entré de valeur.</p>
+<p>textCenter (bool|int): si True ou 1, le texte est centré dans le QLineEdit.</p>
+<p>passwordInput (bool|int): si True ou 1, le QLineEdit est affiché comme champ de saisie de mot de passe.</p>
+</dd>
+<dt>Returns:</dt><dd><p>QLineEdit: le QLineEdit créé.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Fram.newLabel">
+<span class="sig-name descname"><span class="pre">newLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwith</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lheight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styleCSS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titleHTML</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textCenter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QLabel</span></span></span><a class="reference internal" href="_modules/package/UI.html#Fram.newLabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram.newLabel" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Créer et retourne un QLabel avec des propriétés spécifiques.</p>
+<dl>
+<dt>Args:</dt><dd><p>left (int): la position horizontale du coin supérieur gauche du QLabel.</p>
+<p>top (int): la position verticale du coin supérieur gauche du QLabel.</p>
+<p>lwith (int): la largeur du QLabel.</p>
+<p>lheight (int): la hauteur du QLabel.</p>
+<p>styleCSS (str): les propriétés CSS à appliquer au QLabel.</p>
+<p>titleHTML (str): le texte HTML à afficher dans le QLabel.</p>
+<p>textCenter (bool|int): si True ou 1, le texte est centré dans le QLabel.</p>
+</dd>
+<dt>Returns:</dt><dd><p>QLabel: le QLabel créé.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Fram.newLogo">
+<span class="sig-name descname"><span class="pre">newLogo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wwith</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheigth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QLabel</span></span></span><a class="reference internal" href="_modules/package/UI.html#Fram.newLogo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram.newLogo" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée et retourne un nouveau QLabel avec une icône spécifiée.</p>
+<p>Args:</p>
+<blockquote>
+<div><p>left (int): La position horizontale du coin supérieur gauche du QLabel.</p>
+<p>top (int): La position verticale du coin supérieur gauche du QLabel.</p>
+<p>wwith (int): La largeur du QLabel.</p>
+<p>wheigth (int): La hauteur du QLabel.</p>
+<p>icon (str): Le chemin de l’image de fond à utiliser pour le QLabel.</p>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><p>QLabel: Un nouveau QLabel avec les propriétés spécifiées.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Fram.newTable">
+<span class="sig-name descname"><span class="pre">newTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwith</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lheigth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styleCSS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QTableWidget</span></span></span><a class="reference internal" href="_modules/package/UI.html#Fram.newTable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram.newTable" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée une nouvelle instance de QTableWidget.</p>
+<dl>
+<dt>Args:</dt><dd><p>left (int): Coordonnée horizontale de la table.</p>
+<p>top (int): Coordonnée verticale de la table.</p>
+<p>lwith (int): Largeur de la table.</p>
+<p>lheigth (int): Hauteur de la table.</p>
+<p>styleCSS (str): Chaîne de style CSS à appliquer à la table.</p>
+<p>row (int|None): Nombre de lignes de la table. Par défaut None.</p>
+<p>col (int|None): Nombre de colonnes de la table. Par défaut None.</p>
+</dd>
+<dt>Returns:</dt><dd><p>QTableWidget: Nouvelle instance de QTableWidget.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Fram.showFrame">
+<span class="sig-name descname"><span class="pre">showFrame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/package/UI.html#Fram.showFrame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Fram.showFrame" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche la fenêtre Frame.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="package.UI.Window">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">package.UI.</span></span><span class="sig-name descname"><span class="pre">Window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wwith</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheigth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iconImage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bakgroundImage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styleCSS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixedSize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/UI.html#Window"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Window" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Classe représentant la fenêtre principale de l’application.</p>
+<dl>
+<dt>Args:</dt><dd><p>wwith (int): La largeur de la fenêtre.</p>
+<p>wheigth (int): La hauteur de la fenêtre.</p>
+<p>title (str): Le titre de la fenêtre.</p>
+<p>iconImage (str|None): Le chemin vers l’image à utiliser pour l’icône de la fenêtre. None si pas d’image.</p>
+<p>bakgroundImage (str|None): Le chemin vers l’image à utiliser pour l’arrière-plan de la fenêtre. None si pas d’image.</p>
+<p>styleCSS (str|None): Chaîne de style CSS ou None s’il n’y en a pas.</p>
+<p>fixedSize (bool|int): Si la fenêtre doit être de taille fixe. True ou 1 si oui, False ou 0 si non.</p>
+<p>opacity (float|None): L’opacité de la fenêtre. None si pas d’opacité.</p>
+</dd>
+<dt>Methods:</dt><dd><p>newFram: Crée une nouvelle instance de la classe Fram et la retourne.</p>
+<p>keyPressEvent: Méthode de gestionnaire d’événements qui est appelée lorsque l’utilisateur appuie sur la touche « Entrée ».</p>
+<p>center: Centre la fenêtre sur l’écran.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Window.center">
+<span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/UI.html#Window.center"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Window.center" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Centre la fenêtre sur l’écran.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Window.keyPressEvent">
+<span class="sig-name descname"><span class="pre">keyPressEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/UI.html#Window.keyPressEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Window.keyPressEvent" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Gère l’événement de pression de touche du clavier.
+Cette méthode est appelée chaque fois qu’une touche du clavier est pressée alors que la 
+fenêtre a le focus.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>event (QEvent): L’événement de pression de touche du clavier.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Aucune valeur de retour.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="package.UI.Window.newFram">
+<span class="sig-name descname"><span class="pre">newFram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wwidth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheigth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bakgroundImage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styleCSS</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/package/UI.html#Window.newFram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#package.UI.Window.newFram" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Crée un nouveau cadre (Fram) dans la fenêtre.</p>
+<dl>
+<dt>Args:</dt><dd><p>left (int): La position horizontale du cadre en pixels.</p>
+<p>top (int): La position verticale du cadre en pixels.</p>
+<p>wwidth (int): La largeur du cadre en pixels.</p>
+<p>wheigth (int): La hauteur du cadre en pixels.</p>
+<p>bakgroundImage (str | None): Le chemin d’accès à l’image de fond du cadre.</p>
+<p>styleCSS (str | None): Chaîne de style CSS ou None s’il n’y en a pas.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Fram: L’objet créé pour le cadre.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-package">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-package" title="Lien permanent vers cette rubrique"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="controller.html" class="btn btn-neutral float-left" title="controller package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="views.html" class="btn btn-neutral float-right" title="views package" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, LAAMIRI Ouail.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

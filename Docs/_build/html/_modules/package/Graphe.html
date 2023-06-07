@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>package.Graphe &mdash; Documentation Theorie de graphe 1.0.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Theorie de graphe
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">test-py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Theorie de graphe</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">package.Graphe</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de package.Graphe</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="kn">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
+<span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QVBoxLayout</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<div class="viewcode-block" id="Graph"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph">[docs]</a><span class="k">class</span> <span class="nc">Graph</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe singleton qui représente un graphe orienté ou non orienté avec ou sans pondération.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        directed (bool): True si le graphe est orienté, False sinon.</span>
+<span class="sd">        </span>
+<span class="sd">        pondere (bool): True si le graphe est pondéré, False sinon.</span>
+<span class="sd">        </span>
+<span class="sd">        instance (Graph): Instance unique de la classe Graph.</span>
+<span class="sd">        </span>
+<span class="sd">        graphe (nx.Graph|nx.DiGraph): Graphe du réseau créé avec la bibliothèque NetworkX.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        get_instance(cls, directed: bool, pondere: bool) -&gt; nx.Graph|nx.DiGraph:</span>
+<span class="sd">            Crée une instance de la classe Graph s&#39;il n&#39;en existe pas déjà une et la retourne.</span>
+<span class="sd">        init(self) -&gt; None:</span>
+<span class="sd">            Réinitialise le graphe.</span>
+<span class="sd">        add_vertex(self, vertex) -&gt; None:</span>
+<span class="sd">            Ajoute un sommet au graphe.</span>
+<span class="sd">        add_edge(self, vertex1: str, vertex2: str) -&gt; None:</span>
+<span class="sd">            Ajoute une arête non pondérée entre deux sommets au graphe.</span>
+<span class="sd">        add_edge_value(self, vertex1: str, vertex2: str, value: float) -&gt; None:</span>
+<span class="sd">            Ajoute une arête pondérée entre deux sommets au graphe.</span>
+<span class="sd">        get_neighbors(self, vertex: str) -&gt; list:</span>
+<span class="sd">            Retourne une liste des voisins du sommet donné en argument.</span>
+<span class="sd">        remove_vertex(self, vertex: str) -&gt; None:</span>
+<span class="sd">            Retire un sommet du graphe.</span>
+<span class="sd">        remove_edge(self, vertex1: str, vertex2: str) -&gt; None:</span>
+<span class="sd">            Retire une arête entre deux sommets du graphe.</span>
+<span class="sd">        getVertex(self) -&gt; list:</span>
+<span class="sd">            Retourne une liste des sommets du graphe.</span>
+<span class="sd">        bfs(self, start: str) -&gt; list:</span>
+<span class="sd">            Parcours en largeur du graphe à partir du sommet de départ donné en argument.</span>
+<span class="sd">        dfs(self, start: str) -&gt; list:</span>
+<span class="sd">            Parcours en profondeur du graphe à partir du sommet de départ donné en argument.</span>
+<span class="sd">        isDirected(self) -&gt; bool:</span>
+<span class="sd">            Retourne True si le graphe est orienté, False sinon.</span>
+<span class="sd">        isPondere(self) -&gt; bool:</span>
+<span class="sd">            Retourne True si le graphe est pondéré, False sinon.</span>
+<span class="sd">        isEulerian(self) -&gt; bool:</span>
+<span class="sd">            Retourne True si le graphe est eulérien, False sinon.</span>
+<span class="sd">        isPlanaire(self) -&gt; bool:</span>
+<span class="sd">            Retourne True si le graphe est planaire, False sinon.</span>
+<span class="sd">        isConnexe(self) -&gt; bool:</span>
+<span class="sd">            Retourne True si le graphe est connexe, False sinon.</span>
+<span class="sd">        toDirectedPondere(self) -&gt; None:</span>
+<span class="sd">            Transforme le graphe en graphe orienté pondéré.</span>
+<span class="sd">        toUnDirectedPondere(self) -&gt; None:</span>
+<span class="sd">            Transforme le graphe en graphe non orienté pondéré.</span>
+<span class="sd">        toDirected(self) -&gt; None:</span>
+<span class="sd">            Transforme le graphe en graphe orienté non pondéré.</span>
+<span class="sd">        toUnDirected(self) -&gt; None:</span>
+<span class="sd">            Transforme le graphe en graphe non orienté non pondéré.</span>
+<span class="sd">        isVide(self) -&gt; bool:</span>
+<span class="sd">            Retourne True si le graphe est vide, False sinon</span>
+<span class="sd">        </span>
+<span class="sd">       </span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception: Si une deuxième instance de la classe Graph est créée.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__instance</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">directed</span><span class="p">:</span><span class="nb">bool</span><span class="p">,</span><span class="n">pondere</span><span class="p">:</span><span class="nb">bool</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructeur de la classe Graph.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - directed (bool) : True si le graphe est orienté, False sinon.</span>
+<span class="sd">        - pondere (bool) : True si le graphe est pondéré, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">Graph</span><span class="o">.</span><span class="n">__instance</span> <span class="ow">is</span> <span class="kc">None</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__directed</span><span class="o">=</span><span class="n">directed</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__pondere</span><span class="o">=</span><span class="n">pondere</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__directed</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span> 
+            <span class="n">Graph</span><span class="o">.</span><span class="n">__instance</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="c1">#print(&quot;Singleton class can&#39;t have more than one instance&quot;)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Singleton class can&#39;t have more than one instance,please use get_instance() method&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Graph.get_instance"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.get_instance">[docs]</a>    <span class="nd">@classmethod</span>   
+    <span class="k">def</span> <span class="nf">get_instance</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">directed</span><span class="p">:</span><span class="nb">bool</span><span class="p">,</span><span class="n">pondere</span><span class="p">:</span><span class="nb">bool</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="o">|</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Renvoie l&#39;instance unique de la classe Graph ou crée une nouvelle instance si elle n&#39;existe pas encore.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            directed (bool) : True si le graphe est orienté, False sinon.</span>
+<span class="sd">        </span>
+<span class="sd">            pondere (bool) : True si le graphe est pondéré, False sinon.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Graph.__instance : L&#39;instance unique de la classe Graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">Graph</span><span class="o">.</span><span class="n">__instance</span> <span class="ow">is</span> <span class="kc">None</span> <span class="p">:</span>
+            <span class="n">Graph</span><span class="p">(</span><span class="n">directed</span><span class="p">,</span><span class="n">pondere</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Graph</span><span class="o">.</span><span class="n">__instance</span> </div>
+<div class="viewcode-block" id="Graph.init"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.init">[docs]</a>    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Réinitialise le graphe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__directed</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Graph.add_vertex"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.add_vertex">[docs]</a>    <span class="k">def</span> <span class="nf">add_vertex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Ajoute un sommet au graphe.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                vertex (str): Nom du sommet à ajouter.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span> </div>
+<div class="viewcode-block" id="Graph.add_edge"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.add_edge">[docs]</a>    <span class="k">def</span> <span class="nf">add_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex1</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Ajoute une arête non pondérée entre deux sommets au graphe.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                vertex1 (str): Nom du premier sommet.</span>
+<span class="sd">                </span>
+<span class="sd">                vertex2 (str): Nom du deuxième sommet.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">vertex1</span><span class="p">,</span><span class="n">vertex2</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Graph.add_edge_value"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.add_edge_value">[docs]</a>    <span class="k">def</span> <span class="nf">add_edge_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex1</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span><span class="nb">float</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Ajoute une arête pondérée entre deux sommets au graphe.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                vertex1 (str): Nom du premier sommet.</span>
+<span class="sd">                </span>
+<span class="sd">                vertex2 (str): Nom du deuxième sommet.</span>
+<span class="sd">                </span>
+<span class="sd">                value (float): Poids de l&#39;arête à ajouter.</span>
+<span class="sd">                </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">vertex1</span><span class="p">,</span><span class="n">vertex2</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">))</span> </div>
+<div class="viewcode-block" id="Graph.get_neighbors"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.get_neighbors">[docs]</a>    <span class="k">def</span> <span class="nf">get_neighbors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Retourne une liste des voisins du sommet donné en argument.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                vertex (str): Nom du sommet dont on veut connaître les voisins.</span>
+<span class="sd">            </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                list: Liste des noms des voisins du sommet donné en argument.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">vertex</span><span class="p">))</span></div>
+<div class="viewcode-block" id="Graph.remove_vertex"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.remove_vertex">[docs]</a>    <span class="k">def</span> <span class="nf">remove_vertex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Retire un sommet du graphe.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                vertex (str): Nom du sommet à retirer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">remove_node</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Graph.remove_edge"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.remove_edge">[docs]</a>    <span class="k">def</span> <span class="nf">remove_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex1</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Retire une arête entre deux sommets du graphe.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                vertex1 (str): Nom du premier sommet.</span>
+<span class="sd">                </span>
+<span class="sd">                vertex2 (str): Nom du deuxième sommet.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">remove_edge</span><span class="p">(</span><span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Graph.getVertex"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getVertex">[docs]</a>    <span class="k">def</span> <span class="nf">getVertex</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Retourne une liste des sommets du graphe.</span>
+<span class="sd">            </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                list: Liste des noms des sommets du graphe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span></div>
+<div class="viewcode-block" id="Graph.bfs"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.bfs">[docs]</a>    <span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Parcours en largeur du graphe à partir du sommet de départ donné en argument.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                start (str): Nom du sommet de départ.</span>
+<span class="sd">            </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                list: Liste des noms des sommets visités lors du parcours en largeur.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+        <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+        <span class="n">bfs_order</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">bfs_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">neighbor</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+                    <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">neighbor</span><span class="p">)</span>
+                    <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbor</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">bfs_order</span></div>
+<div class="viewcode-block" id="Graph.dfs"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.dfs">[docs]</a>    <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Effectue une recherche en profondeur (DFS) à partir du nœud start.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            start (str): Le nœud de départ de la recherche en profondeur.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Une liste de nœuds dans l&#39;ordre où ils ont été visités par la recherche en profondeur.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+        <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">dfs_order</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+                <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+                <span class="n">dfs_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">neighbor</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+                        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbor</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dfs_order</span></div>
+
+<div class="viewcode-block" id="Graph.isDirected"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.isDirected">[docs]</a>    <span class="k">def</span> <span class="nf">isDirected</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Renvoie True si le graphe est orienté, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__directed</span></div>
+<div class="viewcode-block" id="Graph.isPondere"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.isPondere">[docs]</a>    <span class="k">def</span> <span class="nf">isPondere</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Renvoie True si le graphe est pondéré, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pondere</span></div>
+<div class="viewcode-block" id="Graph.isEulerian"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.isEulerian">[docs]</a>    <span class="k">def</span> <span class="nf">isEulerian</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Vérifie si le graphe est eulérien.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True si le graphe est eulérien, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_eulerian</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Graph.isPlanaire"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.isPlanaire">[docs]</a>    <span class="k">def</span> <span class="nf">isPlanaire</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Vérifie si le graphe est planaire.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True si le graphe est planaire, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">is_planar</span><span class="p">,</span> <span class="n">embedding</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">check_planarity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">is_planar</span></div>
+<div class="viewcode-block" id="Graph.isConnexe"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.isConnexe">[docs]</a>    <span class="k">def</span> <span class="nf">isConnexe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Vérifie si le graphe est connexe.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True si le graphe est connexe, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isVide</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">__directed</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_strongly_connected</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">)</span>
+            <span class="c1">#print(&quot;Le graphe est fortement connexe&quot;)</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">is_connected</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Graph.toDirectedPondere"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.toDirectedPondere">[docs]</a>    <span class="k">def</span> <span class="nf">toDirectedPondere</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cette méthode permet de transformer un graphe non orienté et pondéré en graphe orienté et pondéré.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__directed</span><span class="o">=</span><span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pondere</span><span class="o">=</span><span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+        <span class="n">Graph</span><span class="o">.</span><span class="n">__instance</span><span class="o">=</span><span class="bp">self</span></div>
+<div class="viewcode-block" id="Graph.toUnDirectedPondere"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.toUnDirectedPondere">[docs]</a>    <span class="k">def</span> <span class="nf">toUnDirectedPondere</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cette méthode permet de transformer un graphe orienté et pondéré en graphe non orienté et pondéré.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__directed</span><span class="o">=</span><span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pondere</span><span class="o">=</span><span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+        <span class="n">Graph</span><span class="o">.</span><span class="n">__instance</span><span class="o">=</span><span class="bp">self</span></div>
+<div class="viewcode-block" id="Graph.toDirected"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.toDirected">[docs]</a>    <span class="k">def</span> <span class="nf">toDirected</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cette méthode permet de transformer un graphe non orienté et non pondéré en graphe orienté et non pondéré.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__directed</span><span class="o">=</span><span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pondere</span><span class="o">=</span><span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+        <span class="n">Graph</span><span class="o">.</span><span class="n">__instance</span><span class="o">=</span><span class="bp">self</span></div>
+<div class="viewcode-block" id="Graph.toUnDirected"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.toUnDirected">[docs]</a>    <span class="k">def</span> <span class="nf">toUnDirected</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cette méthode permet de transformer un graphe orienté et non pondéré en graphe non orienté et non pondéré.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__directed</span><span class="o">=</span><span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pondere</span><span class="o">=</span><span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+        <span class="n">Graph</span><span class="o">.</span><span class="n">__instance</span><span class="o">=</span><span class="bp">self</span></div>
+<div class="viewcode-block" id="Graph.isVide"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.isVide">[docs]</a>    <span class="k">def</span> <span class="nf">isVide</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cette méthode vérifie si le graphe est vide.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool : True si le graphe est vide, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span><span class="o">==</span><span class="p">[]:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+<div class="viewcode-block" id="Graph.getNetworkxGraph"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getNetworkxGraph">[docs]</a>    <span class="k">def</span> <span class="nf">getNetworkxGraph</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="o">|</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cette méthode retourne le graphe sous forme d&#39;un objet Networkx Graph ou DiGraph.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            nx.Graph|nx.DiGraph : le graphe sous forme d&#39;un objet Networkx Graph ou DiGraph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span></div>
+<div class="viewcode-block" id="Graph.getNombreSommet"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getNombreSommet">[docs]</a>    <span class="k">def</span> <span class="nf">getNombreSommet</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cette méthode retourne le nombre de sommets dans le graphe.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int : le nombre de sommets dans le graphe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Graph.getNombreArrete"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getNombreArrete">[docs]</a>    <span class="k">def</span> <span class="nf">getNombreArrete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne le nombre d&#39;arêtes dans le graphe.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: Le nombre d&#39;arêtes dans le graphe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Graph.getDensite"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getDensite">[docs]</a>    <span class="k">def</span> <span class="nf">getDensite</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calcule la densité du graphe.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float : La densité du graphe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getNombreSommet</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">getNombreSommet</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">d</span><span class="o">=</span><span class="mf">0.0</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">__directed</span> <span class="p">:</span>
+            <span class="n">d</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNombreArrete</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNombreSommet</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNombreSommet</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="n">d</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">getNombreArrete</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNombreSommet</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNombreSommet</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">d</span></div>
+<div class="viewcode-block" id="Graph.getDegreeSommets"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getDegreeSommets">[docs]</a>    <span class="k">def</span> <span class="nf">getDegreeSommets</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne un dictionnaire contenant les degrés de chaque sommet du graphe.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: Dictionnaire contenant les degrés des sommets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">degree</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Graph.getMatriceAdjacent"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getMatriceAdjacent">[docs]</a>    <span class="k">def</span> <span class="nf">getMatriceAdjacent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne une liste représentant la matrice d&#39;adjacence du graphe.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: Liste représentant la matrice d&#39;adjacence du graphe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">to_numpy_array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Graph.getMatriceIncidence"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getMatriceIncidence">[docs]</a>    <span class="k">def</span> <span class="nf">getMatriceIncidence</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne une liste représentant la matrice d&#39;incidence du graphe.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: Liste représentant la matrice d&#39;incidence du graphe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">incidence_matrix</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">,</span><span class="n">oriented</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__directed</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Graph.getListeSommet"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getListeSommet">[docs]</a>    <span class="k">def</span> <span class="nf">getListeSommet</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne une liste contenant tous les sommets du graphe.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: Liste contenant tous les sommets du graphe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span></div>
+<div class="viewcode-block" id="Graph.getListeArrete"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getListeArrete">[docs]</a>    <span class="k">def</span> <span class="nf">getListeArrete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne un dictionnaire contenant les arêtes du graphe.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: Dictionnaire contenant les arêtes du graphe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pondere</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">edges</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="s2">&quot;weight&quot;</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Graph.getBfsGraphe"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getBfsGraphe">[docs]</a>    <span class="k">def</span> <span class="nf">getBfsGraphe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">source</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne l&#39;arbre de parcours en largeur (BFS) à partir du sommet source.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            source (str): Le sommet source pour le parcours en largeur.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            nx.DiGraph: L&#39;arbre de parcours en largeur à partir du sommet source.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">bfs_tree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Graph.getDfsGraphe"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getDfsGraphe">[docs]</a>    <span class="k">def</span> <span class="nf">getDfsGraphe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">source</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne l&#39;arbre de parcours en profondeur (DFS) à partir du sommet source.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            source (str): Le sommet source pour le parcours en profondeur.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            nx.DiGraph: L&#39;arbre de parcours en profondeur à partir du sommet source.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">dfs_tree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span></div>
+    <span class="c1"># def updateGraphePDF(self,source:str|None):</span>
+    <span class="c1">#     def updatePhotoGraphe(G,flag,path):</span>
+    <span class="c1">#         fig = plt.Figure()</span>
+    <span class="c1">#         ax = fig.add_subplot(111)</span>
+    <span class="c1">#         pos = nx.spring_layout(G)</span>
+    <span class="c1">#         if flag==&#39;graphe&#39;:</span>
+    <span class="c1">#             nx.draw_networkx_nodes(G, pos, ax=ax,node_color=&quot;yellow&quot;)</span>
+    <span class="c1">#         else :</span>
+    <span class="c1">#             node_colors =[&quot;green&quot;]</span>
+    <span class="c1">#             for i in range(G.number_of_nodes()-1):</span>
+    <span class="c1">#                 node_colors+=[&quot;yellow&quot;]</span>
+    <span class="c1">#             nx.draw_networkx_nodes(G, pos, ax=ax,node_color=node_colors)</span>
+    <span class="c1">#         edge_labels = nx.get_edge_attributes(G, &#39;weight&#39;)</span>
+    <span class="c1">#         nx.draw_networkx_edges(G, pos, ax=ax)</span>
+    <span class="c1">#         nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, ax=ax)</span>
+    <span class="c1">#         nx.draw_networkx_labels(G, pos, ax=ax)</span>
+    <span class="c1">#         canvas = FigureCanvas(fig)</span>
+    <span class="c1">#         layout = QVBoxLayout()</span>
+    <span class="c1">#         layout.addWidget(canvas)</span>
+    <span class="c1">#         canvas.print_figure(path)</span>
+    <span class="c1">#     updatePhotoGraphe(self.getNetworkxGraph(),&#39;graphe&#39;,&quot;./graphe-pdf/graph.png&quot;)</span>
+    <span class="c1">#     if source !=None :</span>
+    <span class="c1">#         updatePhotoGraphe(self.getBfsGraphe(source),&#39;bfs&#39;,&quot;./graphe-pdf/bfs-graph.png&quot;)</span>
+    <span class="c1">#         updatePhotoGraphe(self.getDfsGraphe(source),&#39;dfs&#39;,&quot;./graphe-pdf/dfs-graph.png&quot;)</span>
+<div class="viewcode-block" id="Graph.getPrimGraphe"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getPrimGraphe">[docs]</a>    <span class="k">def</span> <span class="nf">getPrimGraphe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">source</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne l&#39;arbre de poids minimum (MST) du sous-graphe connexe de self.__graphe contenant le nœud source.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            source (str) : Le nom du nœud de départ.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            mst (nx.Graph) : L&#39;arbre de poids minimum (MST) du sous-graphe connexe de self.__graphe contenant le nœud source.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start_node</span> <span class="o">=</span> <span class="n">source</span>
+        <span class="n">subgraph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">node_connected_component</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">,</span> <span class="n">start_node</span><span class="p">))</span>
+        <span class="n">mst</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">minimum_spanning_tree</span><span class="p">(</span><span class="n">subgraph</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mst</span></div>
+<div class="viewcode-block" id="Graph.getKruskalGraphe"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getKruskalGraphe">[docs]</a>    <span class="k">def</span> <span class="nf">getKruskalGraphe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">source</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne l&#39;arbre de poids minimum (MST) du sous-graphe connexe de self.__graphe contenant le nœud source, calculé en utilisant l&#39;algorithme de Kruskal.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            source (str) : Le nom du nœud de départ.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            mst (nx.Graph) : L&#39;arbre de poids minimum (MST) du sous-graphe connexe de self.__graphe contenant le nœud source, calculé en utilisant l&#39;algorithme de Kruskal.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start_node</span> <span class="o">=</span> <span class="n">source</span>
+        <span class="n">subgraph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">node_connected_component</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">,</span> <span class="n">start_node</span><span class="p">))</span>
+        <span class="n">mst</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">minimum_spanning_tree</span><span class="p">(</span><span class="n">subgraph</span><span class="p">,</span><span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;kruskal&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mst</span></div>
+    <span class="c1"># def getFloydWarshall(self):</span>
+    <span class="c1">#     &quot;&quot;&quot;</span>
+    <span class="c1">#     Retourne un dictionnaire contenant la matrice des distances de Floyd-Warshall pour self.__graphe.</span>
+
+    <span class="c1">#     Returns:</span>
+    <span class="c1">#         distances (dict) : Un dictionnaire contenant la matrice des distances de Floyd-Warshall pour self.__graphe.</span>
+    <span class="c1">#     &quot;&quot;&quot;</span>
+    <span class="c1">#     distances = nx.floyd_warshall(self.__graphe)</span>
+    <span class="c1">#     return distances</span>
+<div class="viewcode-block" id="Graph.getVideGraphe"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getVideGraphe">[docs]</a>    <span class="k">def</span> <span class="nf">getVideGraphe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne un graphe vide.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            nx.Graph : Un graphe vide.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Graph.getListeDijkstra"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getListeDijkstra">[docs]</a>    <span class="k">def</span> <span class="nf">getListeDijkstra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">source</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">pointFinal</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne une liste contenant le chemin le plus court entre la source et le point final</span>
+<span class="sd">        en utilisant l&#39;algorithme de Dijkstra.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            source (str) : Le nœud source du chemin.</span>
+<span class="sd">        </span>
+<span class="sd">            pointFinal (str) : Le nœud final du chemin.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list : La liste contenant le chemin le plus court.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">dijkstra_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">,</span><span class="n">source</span><span class="p">,</span> <span class="n">pointFinal</span><span class="p">))</span></div>
+<div class="viewcode-block" id="Graph.getListeBellmanFord"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getListeBellmanFord">[docs]</a>    <span class="k">def</span> <span class="nf">getListeBellmanFord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">source</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">pointFinal</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">bellman_ford_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">pointFinal</span><span class="p">))</span></div>
+<div class="viewcode-block" id="Graph.getWarshallGraphe"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.getWarshallGraphe">[docs]</a>    <span class="k">def</span> <span class="nf">getWarshallGraphe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">transitive_closure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Graph.isAllPositive"><a class="viewcode-back" href="../../package.html#package.Graphe.Graph.isAllPositive">[docs]</a>    <span class="k">def</span> <span class="nf">isAllPositive</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pondere</span> <span class="p">:</span>
+            <span class="n">all_positive</span><span class="o">=</span><span class="kc">True</span>
+            <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__graphe</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">weight</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">all_positive</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">break</span>
+            <span class="k">return</span> <span class="n">all_positive</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div></div>
+
+
+
+        
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, LAAMIRI Ouail.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

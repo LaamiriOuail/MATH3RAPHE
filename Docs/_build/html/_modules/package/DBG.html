@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>package.DBG &mdash; Documentation Theorie de graphe 1.0.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Theorie de graphe
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">test-py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Theorie de graphe</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">package.DBG</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de package.DBG</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<div class="viewcode-block" id="DBG"><a class="viewcode-back" href="../../package.html#package.DBG.DBG">[docs]</a><span class="k">class</span> <span class="nc">DBG</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">Connection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Connexion à une base de données SQLite.</span>
+
+<span class="sd">    Cette classe hérite de la classe `sqlite3.Connection` et ajoute des méthodes pour insérer, sélectionner et supprimer des enregistrements dans une table spécifique de la base de données.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        database (str): Le nom de la base de données.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        _dataBase (str): Le chemin vers la base de données.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        __init__(self, database: str) -&gt; None:</span>
+<span class="sd">            Initialise une nouvelle connexion à la base de données spécifiée.</span>
+
+<span class="sd">        insert(self, date: str, heur: str, orienter: str, pondere: str, sommet: str, arc: str) -&gt; bool:</span>
+<span class="sd">            Insère un nouveau enregistrement dans la table &quot;graphe&quot;.</span>
+
+<span class="sd">        selectAll(self) -&gt; list|bool:</span>
+<span class="sd">            Sélectionne tous les enregistrements de la table &quot;graphe&quot;.</span>
+
+<span class="sd">        nbrData(self) -&gt; int:</span>
+<span class="sd">            Récupère le nombre total d&#39;enregistrements dans la table &quot;graphe&quot;.</span>
+
+<span class="sd">        delete(self, id: int) -&gt; bool:</span>
+<span class="sd">            Supprime un enregistrement spécifié de la table &quot;graphe&quot;.</span>
+
+<span class="sd">        deleteAll(self) -&gt; bool:</span>
+<span class="sd">            Supprime tous les enregistrements de la table &quot;graphe&quot;.</span>
+
+<span class="sd">       </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">database</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise une nouvelle connexion à la base de données spécifiée.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            database (str): Le nom de la base de données.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dataBase</span> <span class="o">=</span><span class="sa">f</span><span class="s2">&quot;.</span><span class="se">\\</span><span class="s2">models</span><span class="se">\\</span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s2">.db&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dataBase</span><span class="o">=</span><span class="n">dataBase</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataBase</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CREATE TABLE IF NOT EXISTS </span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s1"> (id INTEGER PRIMARY KEY AUTOINCREMENT , date TEXT , heur TEXT,orienter TEXT,pondere TEXT,Sommet Text,arc TEXT)&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="DBG.insert"><a class="viewcode-back" href="../../package.html#package.DBG.DBG.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">heur</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">orienter</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">pondere</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">sommet</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">arc</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Insère un nouveau enregistrement dans la table &quot;graphe&quot;.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            date (str): La date de l&#39;enregistrement.</span>
+<span class="sd">            </span>
+<span class="sd">            heur (str): L&#39;heure de l&#39;enregistrement.</span>
+<span class="sd">            </span>
+<span class="sd">            orienter (str): La direction de &quot;graphe&quot;.</span>
+<span class="sd">            </span>
+<span class="sd">            pondere (str): La pondération de &quot;graphe&quot;.</span>
+<span class="sd">            </span>
+<span class="sd">            sommet (str): Liste des sommets de &quot;graphe&quot;.</span>
+<span class="sd">            </span>
+<span class="sd">            arc (str): Liste des arretes(arcs) de &quot;graphe&quot;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True si l&#39;enregistrement a été inséré avec succès, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;INSERT INTO graphe(date,heur,orienter,pondere,sommet,arc) VALUES (?,?,?,?,?,?)&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span><span class="n">heur</span><span class="p">,</span><span class="n">orienter</span><span class="p">,</span><span class="n">pondere</span><span class="p">,</span><span class="n">sommet</span><span class="p">,</span><span class="n">arc</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+<div class="viewcode-block" id="DBG.selectAll"><a class="viewcode-back" href="../../package.html#package.DBG.DBG.selectAll">[docs]</a>    <span class="k">def</span> <span class="nf">selectAll</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="o">|</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sélectionne tous les enregistrements de la table &quot;graphe&quot;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: Une liste contenant tous les enregistrements de la table.</span>
+<span class="sd">            </span>
+<span class="sd">            bool: False si une erreur s&#39;est produite lors de l&#39;exécution de la requête.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;SELECT date,heur,orienter,pondere,sommet,arc FROM graphe&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+<div class="viewcode-block" id="DBG.nbrData"><a class="viewcode-back" href="../../package.html#package.DBG.DBG.nbrData">[docs]</a>    <span class="k">def</span> <span class="nf">nbrData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Récupère le nombre total d&#39;enregistrements dans la table &quot;graphe&quot;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: Le nombre total d&#39;enregistrements dans la table.</span>
+<span class="sd">            </span>
+<span class="sd">            int: -1 si une erreur s&#39;est produite lors de l&#39;exécution de la requête.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;SELECT COUNT(*) FROM graphe&#39;</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="n">num_rows</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">num_rows</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
+<div class="viewcode-block" id="DBG.delete"><a class="viewcode-back" href="../../package.html#package.DBG.DBG.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Supprime l&#39;enregistrement correspondant à l&#39;ID spécifié de la table &quot;graphe&quot;.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            id (int): L&#39;ID de l&#39;enregistrement à supprimer.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True si l&#39;enregistrement a été supprimé avec succès, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">id</span><span class="o">&gt;</span><span class="bp">self</span><span class="o">.</span><span class="n">nbrData</span><span class="p">()</span> <span class="ow">or</span> <span class="nb">id</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;DELETE FROM graphe WHERE id = ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">id</span><span class="p">,))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;UPDATE graphe SET id = id - 1 WHERE id &gt; ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">id</span><span class="p">,))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span></div>
+<div class="viewcode-block" id="DBG.deleteAll"><a class="viewcode-back" href="../../package.html#package.DBG.DBG.deleteAll">[docs]</a>    <span class="k">def</span> <span class="nf">deleteAll</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Supprime tous les enregistrements de la table &quot;graphe&quot;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True si tous les enregistrements ont été supprimés avec succès, False sinon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;DELETE FROM graphe&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;UPDATE sqlite_sequence SET seq = 0 WHERE name = &quot;graphe&quot;&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div></div>
+    
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, LAAMIRI Ouail.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

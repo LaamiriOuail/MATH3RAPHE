@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>controller package &mdash; Documentation Theorie de graphe 1.0.0</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="package package" href="package.html" />
+    <link rel="prev" title="test-py" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Theorie de graphe
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">test-py</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">controller package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-controller.manager">controller.manager module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.ajouter_edge"><code class="docutils literal notranslate"><span class="pre">ajouter_edge()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.audio_btn"><code class="docutils literal notranslate"><span class="pre">audio_btn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_bellman_ford_event"><code class="docutils literal notranslate"><span class="pre">btn_bellman_ford_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_bfs_event"><code class="docutils literal notranslate"><span class="pre">btn_bfs_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_delete_event"><code class="docutils literal notranslate"><span class="pre">btn_delete_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_dfs_event"><code class="docutils literal notranslate"><span class="pre">btn_dfs_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_dijkstra_event"><code class="docutils literal notranslate"><span class="pre">btn_dijkstra_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_genere_pdf_bare_event"><code class="docutils literal notranslate"><span class="pre">btn_genere_pdf_bare_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_home_bare_event"><code class="docutils literal notranslate"><span class="pre">btn_home_bare_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_info_graphe_bare_event"><code class="docutils literal notranslate"><span class="pre">btn_info_graphe_bare_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_kruskal_event"><code class="docutils literal notranslate"><span class="pre">btn_kruskal_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_matrix_bare_event"><code class="docutils literal notranslate"><span class="pre">btn_matrix_bare_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_pdf_event"><code class="docutils literal notranslate"><span class="pre">btn_pdf_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_prim_event"><code class="docutils literal notranslate"><span class="pre">btn_prim_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_recherche_event"><code class="docutils literal notranslate"><span class="pre">btn_recherche_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_utiliser_event"><code class="docutils literal notranslate"><span class="pre">btn_utiliser_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_warshall_bare_event"><code class="docutils literal notranslate"><span class="pre">btn_warshall_bare_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.btn_warshall_event"><code class="docutils literal notranslate"><span class="pre">btn_warshall_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.dateTime"><code class="docutils literal notranslate"><span class="pre">dateTime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.enregistrer_graphe_event"><code class="docutils literal notranslate"><span class="pre">enregistrer_graphe_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.graphe_rep"><code class="docutils literal notranslate"><span class="pre">graphe_rep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.initialiser"><code class="docutils literal notranslate"><span class="pre">initialiser()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.patron_db"><code class="docutils literal notranslate"><span class="pre">patron_db()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.showDialog"><code class="docutils literal notranslate"><span class="pre">showDialog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.show_data_historique"><code class="docutils literal notranslate"><span class="pre">show_data_historique()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.show_frame"><code class="docutils literal notranslate"><span class="pre">show_frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.show_frame_sound"><code class="docutils literal notranslate"><span class="pre">show_frame_sound()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.show_info_graph"><code class="docutils literal notranslate"><span class="pre">show_info_graph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.supprimer_edge"><code class="docutils literal notranslate"><span class="pre">supprimer_edge()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.type_graphe_activited"><code class="docutils literal notranslate"><span class="pre">type_graphe_activited()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.update_info_graphe"><code class="docutils literal notranslate"><span class="pre">update_info_graphe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.manager.viderInputChamps"><code class="docutils literal notranslate"><span class="pre">viderInputChamps()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-controller">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="package.html">package package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">views package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Theorie de graphe</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">test-py</a></li>
+      <li class="breadcrumb-item active">controller package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/controller.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="controller-package">
+<h1>controller package<a class="headerlink" href="#controller-package" title="Lien permanent vers cette rubrique"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Lien permanent vers cette rubrique"></a></h2>
+</section>
+<section id="module-controller.manager">
+<span id="controller-manager-module"></span><h2>controller.manager module<a class="headerlink" href="#module-controller.manager" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.ajouter_edge">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">ajouter_edge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#ajouter_edge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.ajouter_edge" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Ajoute un sommet ou une arête dans le graphe en fonction des champs remplis dans l’interface graphique.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>Aucun.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.audio_btn">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">audio_btn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#audio_btn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.audio_btn" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Joue un fichier audio lorsqu’un bouton est pressé.</p>
+<dl class="simple">
+<dt>Paramètres :</dt><dd><p>Aucun</p>
+</dd>
+<dt>Retour :</dt><dd><p>Aucun</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_bellman_ford_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_bellman_ford_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#btn_bellman_ford_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_bellman_ford_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Effectue l’algorithme de Bellman-Ford et affiche la représentation graphique du résultat.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_bfs_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_bfs_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#btn_bfs_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_bfs_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Lance l’événement du bouton BFS.</p>
+<p>Cette fonction récupère le texte de l’entrée de source BFS et vérifie si elle n’est pas vide et si elle est 
+présente dans le graphe. Si elle est valide, cette fonction ferme la fenêtre d’affichage BFS précédente, 
+crée un nouveau graphique pour afficher le BFS du graphe à partir du nœud source donné, puis affiche le graphique 
+créé et définit le texte de la note pour indiquer que le BFS est représenté. Si le texte de l’entrée de source 
+BFS est vide, cette fonction crée un graphique vide et définit le texte de la note pour indiquer que le champ 
+est vide. Si l’entrée de source BFS n’est pas un sommet du graphe, cette fonction crée un graphique vide et 
+définit le texte de la note pour indiquer que l’entrée n’est pas un sommet du graphe.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_delete_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_delete_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="package.html#package.DBG.DBG" title="package.DBG.DBG"><span class="pre">DBG</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#btn_delete_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_delete_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Supprime un graphe de la base de données.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>db (DBG): Objet DBG contenant les informations de la base de données.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_dfs_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_dfs_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#btn_dfs_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_dfs_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Représente le parcours en profondeur (DFS) à partir d’un sommet donné sur le graphe.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_dijkstra_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_dijkstra_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#btn_dijkstra_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_dijkstra_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Événement déclenché lors du clic sur le bouton « Dijkstra ».
+Représente le résultat de l’algorithme de Dijkstra sur le graphe s’il est pondéré et que les champs « source » 
+et « point final » sont remplis. Sinon, affiche un message d’erreur et un graphe vide. Si le graphe n’est pas 
+pondéré, affiche un message d’erreur spécifique et un graphe vide.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_genere_pdf_bare_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_genere_pdf_bare_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#btn_genere_pdf_bare_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_genere_pdf_bare_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche le cadre du PDF et configure les options en fonction des caractéristiques du graphe.</p>
+<p>Si le graphe n’est pas orienté, connexe et pondéré, certaines options seront désactivées.</p>
+<p>Si le graphe est pondéré, les options pour l’algorithme de Prim et Dijkstra seront activées.</p>
+<p>return:</p>
+<p>Aucune valeur de retour.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_home_bare_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_home_bare_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#btn_home_bare_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_home_bare_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche le cadre de la représentation graphique et exécute l’événement de la représentation graphique.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_info_graphe_bare_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_info_graphe_bare_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#btn_info_graphe_bare_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_info_graphe_bare_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche les informations générales du graphe dans la fenêtre d’information.</p>
+<dl class="simple">
+<dt>Args: </dt><dd><p>Aucun</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_kruskal_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_kruskal_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#btn_kruskal_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_kruskal_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Représente le graphe kruskal du graphe courant à partir du sommet source saisi par l’utilisateur.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_matrix_bare_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_matrix_bare_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#btn_matrix_bare_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_matrix_bare_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche le frame pour la matrice du graphe et remplit les tableaux de la matrice 
+adjacente et incidence avec les valeurs correspondantes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_pdf_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_pdf_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#btn_pdf_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_pdf_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Fonction gérant l’événement du bouton PDF.</p>
+<blockquote>
+<div><p>Cette fonction effectue les actions suivantes :
+Appelle la fonction audio_btn().</p>
+<p>Vérifie si le graphe est vide.</p>
+<p>Vérifie si un dossier a été choisi.</p>
+<p>Affiche le graphe initial.</p>
+<p>Affiche le graphe BFS si le sommet source est valide.</p>
+<p>Affiche le graphe DFS si le sommet source est valide.</p>
+<p>Affiche le graphe de Prim si le graphe est non orienté, connexe et pondéré et le sommet source est valide.</p>
+<p>Affiche le graphe de Warshall si le graphe est orienté.</p>
+<p>Affiche le graphe de Bellman-Ford si le graphe est pondéré et les sommets source et destination sont valides.</p>
+<p>Génère le PDF avec les informations fournies.</p>
+<p>Réinitialise les champs de saisie des sommets pour Bellman-Ford.</p>
+</div></blockquote>
+<p>Returns:
+None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_prim_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_prim_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#btn_prim_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_prim_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Fonction qui représente le graphe sous forme d’un arbre couvrant minimal avec l’algorithme de Prim.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Aucune valeur de retour.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_recherche_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_recherche_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#btn_recherche_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_recherche_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Met en évidence la ligne correspondant à l’ID de graphe entré dans le champ de recherche en changeant sa couleur de 
+police en rouge tandis que toutes les autres lignes ont leur couleur de police en noir. Réinitialise également le 
+champ de note_table_db.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>None</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_utiliser_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_utiliser_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="package.html#package.DBG.DBG" title="package.DBG.DBG"><span class="pre">DBG</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#btn_utiliser_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_utiliser_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Fonction qui permet d’utiliser le graphe correspondant à l’identifiant entré dans l’interface.</p>
+<p>Args:</p>
+<blockquote>
+<div><p>db (DBG): une instance de la classe DBG qui permet d’effectuer des requêtes sur la base de données.</p>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>Cette fonction réalise les actions suivantes :</p>
+<blockquote>
+<div><p>récupère les informations du graphe correspondant à l’identifiant entré dans la base de données.</p>
+<p>modifie le graphe de l’application en fonction des caractéristiques du graphe récupéré.</p>
+<p>affiche le nouveau graphe dans l’interface.</p>
+<p>active ou désactive les champs liés aux poids des arêtes en fonction du type de graphe.</p>
+<p>met à jour les notes de l’interface pour donner un feedback à l’utilisateur.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_warshall_bare_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_warshall_bare_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#btn_warshall_bare_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_warshall_bare_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche le cadre de l’algorithme de Warshall et exécute l’événement de l’algorithme de Warshall.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.btn_warshall_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">btn_warshall_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#btn_warshall_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.btn_warshall_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Effectue l’algorithme de Warshall et affiche la représentation graphique du résultat.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.dateTime">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">dateTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/controller/manager.html#dateTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.dateTime" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Renvoie la date et l’heure actuelles sous forme de liste.</p>
+<dl class="simple">
+<dt>Paramètres :</dt><dd><p>Aucun</p>
+</dd>
+<dt>Retour :</dt><dd><p>Une liste contenant la date au format “AAAA-MM-JJ” en tant que première
+valeur, et l’heure au format “HH:MM:SS” en tant que deuxième valeur.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.enregistrer_graphe_event">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">enregistrer_graphe_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#enregistrer_graphe_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.enregistrer_graphe_event" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Enregistre le graphe dans la base de donnees.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.graphe_rep">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">graphe_rep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#graphe_rep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.graphe_rep" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche le graphe représenté par le réseau networkx dans une fenêtre graphique.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.initialiser">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">initialiser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#initialiser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.initialiser" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Initialise le graphe en appelant la méthode init() de l’objet graphe.
+Affiche un message pour confirmer que l’initialisation est terminée et met à jour la représentation du graphe ainsi que les informations associées.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>None</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.patron_db">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">patron_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#patron_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.patron_db" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche un message d’erreur si le champ d’ID est vide ou si aucun graphe ne correspond à l’ID spécifié.
+Exécute la fonction passée en paramètre en fonction de la valeur booléenne <cite>arg</cite>.</p>
+<p>Args:
+- func : fonction à exécuter.
+- arg : valeur booléenne qui indique si la fonction <cite>func</cite> prend un argument ou non.</p>
+<p>Returns:
+None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.showDialog">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">showDialog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#showDialog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.showDialog" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche une boîte de dialogue pour choisir un dossier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.show_data_historique">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">show_data_historique</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#show_data_historique"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.show_data_historique" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche les données de l’historique du graphe dans le tableau “table_historique_graphe”.
+Si la table est vide, affiche un message de notification en vert.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.show_frame">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">show_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#show_frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.show_frame" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette fonction permet d’afficher un frame spécifique en cachant les autres frames qui sont déjà affichés.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>frame (QFrame): Le frame à afficher.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.show_frame_sound">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">show_frame_sound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#show_frame_sound"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.show_frame_sound" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche le frame donné et joue un son de bouton.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>frame (QFrame): le frame à afficher.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.show_info_graph">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">show_info_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#show_info_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.show_info_graph" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Affiche les informations sur le graphe dans la fenêtre d’informations.</p>
+<p>Si la fenêtre d’informations est visible, cette fonction met à jour les informations.
+Si la fenêtre de parcours BFS est visible, cette fonction lance la fonction d’affichage du parcours BFS.
+Si la fenêtre de parcours DFS est visible, cette fonction lance la fonction d’affichage du parcours DFS.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.supprimer_edge">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">supprimer_edge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#supprimer_edge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.supprimer_edge" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Supprime un sommet ou une arête du graphe en fonction des valeurs entrées dans les champs de texte.</p>
+<p>Si les champs de texte sont vides, affiche un message d’erreur.
+Si seul le champ de texte « Sommet de départ » est rempli, supprime ce sommet du graphe.
+Si seul le champ de texte « Sommet d’arrivée » est rempli, supprime ce sommet du graphe.
+Si les deux champs de texte sont remplis, supprime l’arête entre les deux sommets du graphe.</p>
+<p>Affiche un message de confirmation si l’opération s’est bien déroulée et met à jour la représentation graphique
+du graphe ainsi que les informations affichées dans l’interface utilisateur.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.type_graphe_activited">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">type_graphe_activited</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#type_graphe_activited"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.type_graphe_activited" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Change le type du graphe en fonction de l’option sélectionnée dans le menu déroulant type_graphe.
+Si l’option « Orientés » est sélectionnée, le graphe est transformé en un graphe orienté.
+Si l’option « Non-orientés » est sélectionnée, le graphe est transformé en un graphe non orienté.
+Si l’option « Non-orientés pondérés » est sélectionnée, le graphe est transformé en un graphe non orienté pondéré.
+Si l’option « Orientés pondérés » est sélectionnée, le graphe est transformé en un graphe orienté pondéré.
+La fonction met également à jour l’affichage du graphe ainsi que les informations sur le graphe.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>Aucun.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.update_info_graphe">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">update_info_graphe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/controller/manager.html#update_info_graphe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.update_info_graphe" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Met à jour les informations du graphe dans le cadre d’informations s’il est visible,
+et met à jour les cadres de parcours BFS et DFS s’ils sont visibles.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.manager.viderInputChamps">
+<span class="sig-prename descclassname"><span class="pre">controller.manager.</span></span><span class="sig-name descname"><span class="pre">viderInputChamps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/controller/manager.html#viderInputChamps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#controller.manager.viderInputChamps" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Vide les champs de saisie.</p>
+</dd></dl>
+
+</section>
+<section id="module-controller">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-controller" title="Lien permanent vers cette rubrique"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="modules.html" class="btn btn-neutral float-left" title="test-py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="package.html" class="btn btn-neutral float-right" title="package package" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, LAAMIRI Ouail.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

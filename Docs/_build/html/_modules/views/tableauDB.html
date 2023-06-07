@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>views.tableauDB &mdash; Documentation Theorie de graphe 1.0.0</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Theorie de graphe
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">test-py</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Theorie de graphe</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">views.tableauDB</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de views.tableauDB</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span>  <span class="n">QTableWidget</span>
+<div class="viewcode-block" id="tableauBaseDonner"><a class="viewcode-back" href="../../views.html#views.tableauDB.tableauBaseDonner">[docs]</a><span class="k">def</span> <span class="nf">tableauBaseDonner</span><span class="p">(</span><span class="n">container</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Crée un tableau de base de données à partir d&#39;un conteneur donné.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        container: Le conteneur dans lequel le tableau sera créé.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        </span>
+<span class="sd">        frame_tableau_bd: Le cadre du tableau de base de données.</span>
+<span class="sd">        </span>
+<span class="sd">        input_id: Le champ de saisie pour l&#39;identifiant.</span>
+<span class="sd">        </span>
+<span class="sd">        btn_recherche: Le bouton de recherche.</span>
+<span class="sd">        </span>
+<span class="sd">        btn_delete: Le bouton de suppression.</span>
+<span class="sd">        </span>
+<span class="sd">        btn_utiliser: Le bouton d&#39;utilisation.</span>
+<span class="sd">        </span>
+<span class="sd">        table_historique_graphe: Le tableau d&#39;historique des graphes.</span>
+<span class="sd">        </span>
+<span class="sd">        note_table_db: L&#39;étiquette de la table de base de données.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">frame_tableau_bd</span><span class="o">=</span><span class="n">container</span><span class="o">.</span><span class="n">newFram</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:None;font-size:15px;&#39;</span><span class="p">)</span>
+    <span class="n">rechetrche_label</span><span class="o">=</span><span class="n">frame_tableau_bd</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="s1">&#39;font-size:15px;&#39;</span><span class="p">,</span><span class="s1">&#39;Identifiant&#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">input_id</span><span class="o">=</span><span class="n">frame_tableau_bd</span><span class="o">.</span><span class="n">newInput</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">btn_recherche</span><span class="o">=</span><span class="n">frame_tableau_bd</span><span class="o">.</span><span class="n">newButton</span><span class="p">(</span><span class="mi">230</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;background-color:black;color:white;font-size:15px&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:white;color:black&#39;</span><span class="p">,</span><span class="s1">&#39;Rechercehe&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">btn_delete</span><span class="o">=</span><span class="n">frame_tableau_bd</span><span class="o">.</span><span class="n">newButton</span><span class="p">(</span><span class="mi">340</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;background-color:black;color:white;font-size:15px&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:white;color:black&#39;</span><span class="p">,</span><span class="s1">&#39;Supprimer&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">btn_utiliser</span><span class="o">=</span><span class="n">frame_tableau_bd</span><span class="o">.</span><span class="n">newButton</span><span class="p">(</span><span class="mi">450</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;background-color:black;color:white;font-size:15px&#39;</span><span class="p">,</span><span class="s1">&#39;background-color:white;color:black&#39;</span><span class="p">,</span><span class="s1">&#39;Utiliser&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">btn_utiliser</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s2">&quot;Utiliser comme graphe actuelle&quot;</span><span class="p">)</span>
+    <span class="n">note_table_db</span><span class="o">=</span><span class="n">frame_tableau_bd</span><span class="o">.</span><span class="n">newLabel</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s1">&#39;font-size:15px;color:white;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">table_historique_graphe</span><span class="o">=</span><span class="n">QTableWidget</span><span class="p">(</span><span class="n">frame_tableau_bd</span><span class="p">)</span>
+    <span class="n">table_historique_graphe</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">580</span><span class="p">,</span><span class="mi">495</span><span class="p">)</span>
+    <span class="n">table_historique_graphe</span><span class="o">.</span><span class="n">setColumnCount</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">table_historique_graphe</span><span class="o">.</span><span class="n">setHorizontalHeaderLabels</span><span class="p">([</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span><span class="s2">&quot;Hour&quot;</span><span class="p">,</span><span class="s2">&quot;Oriénter&quot;</span><span class="p">,</span><span class="s2">&quot;Pondére&quot;</span><span class="p">,</span><span class="s2">&quot;V&quot;</span><span class="p">,</span><span class="s2">&quot;E&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">frame_tableau_bd</span><span class="p">,</span><span class="n">input_id</span><span class="p">,</span><span class="n">btn_recherche</span><span class="p">,</span><span class="n">btn_delete</span><span class="p">,</span><span class="n">btn_utiliser</span><span class="p">,</span><span class="n">table_historique_graphe</span><span class="p">,</span><span class="n">note_table_db</span></div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, LAAMIRI Ouail.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
