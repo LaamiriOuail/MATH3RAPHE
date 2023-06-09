@@ -1,9 +1,2 @@
--Matrix adjacente  Ok
--PDF 
--Algorithme
--icon
-
-mongodb://localhost:27017
-
 # en Docs : .\make.bat html 
 #../ : sphinx-apidoc -o Docs .
