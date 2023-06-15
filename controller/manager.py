@@ -37,7 +37,7 @@ graphe=Graph(False,False)
 ############################################
 icon_app='.\\public\\icon\\app.png'
 
-generale_container=Window(800,600,"MATH3RAPHE",icon_app,'','background-color:white;',True,0.903)
+generale_container=Window(800,600,"MATH3RAPHE",icon_app,'','background-color:white;',True,0.973)
 
 ############################################
 frame_graphe_manipulation,frame_add_del_edge,type_graphe,input_sommet_depart,input_sommet_arriver,poids_arrete,input_poids_arrete,ajouter_arrete,supprimer_arrete,initialiser_graphe,enregistrer_graphe,note_ajouter_edge=EdgeComponent(generale_container)
@@ -373,16 +373,20 @@ def btn_bellman_ford_event()->None:
             frame_bellman_ford.show()
         else :
             if input_source_bellman_ford.text() in graphe.getNetworkxGraph() and input_pointFinal_bellman_ford.text() in graphe.getNetworkxGraph():
-                if frame_bellman_ford.isVisible():
-                    frame_bellman_ford.close()
-                bellman_ford_repre=frame_bellman_ford.newFrameGraphe(0,30,300,270,graphe.getNetworkxGraph(),"graphe",None)
-                frame_graphe_rep.close()
-                print(graphe.getListeBellmanFord(input_source_bellman_ford.text(),input_pointFinal_bellman_ford.text()))
-                frame_graphe_rep_nx=frame_graphe_rep.newFrameGraphe(0,0,600,300,graphe.getNetworkxGraph(),"bellman_ford",graphe.getListeBellmanFord(input_source_bellman_ford.text(),input_pointFinal_bellman_ford.text()))
-                frame_graphe_rep.show()
-                note_bellman_ford.setStyleSheet("background-color: green ; color : white;font-size:15px;")
-                note_bellman_ford.setText("Bellman-Ford representer...")
-                frame_bellman_ford.show()
+                try:
+                    bellman_ford_repre.close()
+                    bellman_ford_repre=frame_bellman_ford.newFrameGraphe(0,30,300,270,graphe.getNetworkxGraph(),"graphe",None)
+                    frame_graphe_rep.close()
+                    print(graphe.getListeBellmanFord(input_source_bellman_ford.text(),input_pointFinal_bellman_ford.text()))
+                    frame_graphe_rep_nx=frame_graphe_rep.newFrameGraphe(0,0,600,300,graphe.getNetworkxGraph(),"bellman_ford",graphe.getListeBellmanFord(input_source_bellman_ford.text(),input_pointFinal_bellman_ford.text()))
+                    frame_graphe_rep.show()
+                    note_bellman_ford.setStyleSheet("background-color: green ; color : white;font-size:15px;")
+                    note_bellman_ford.setText("Bellman-Ford representer...")
+                    bellman_ford_repre.show()
+                except:
+                    frame_graphe_rep.show()
+                    note_bellman_ford.setStyleSheet("background-color:red;font-size:15px;color : white;")
+                    note_bellman_ford.setText(f"aucun route entre {input_source_bellman_ford.text()} et {input_pointFinal_bellman_ford.text()}")
             else :
                 if frame_bellman_ford.isVisible():
                     frame_bellman_ford.close()
@@ -429,6 +433,7 @@ def btn_dijkstra_event()->None:
                     frame_graphe_rep.show()
                     dijkstra_repre.show()
                 except:
+                    frame_graphe_rep.show()
                     note_dijkstra.setStyleSheet("background-color:red;font-size:15px;color : white;")
                     note_dijkstra.setText(f"aucun route entre {input_source_dijkstra.text()} et {input_pointFinal_dijkstra.text()}")
             else :
