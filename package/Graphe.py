@@ -373,7 +373,31 @@ class Graph:
         Returns:
             list: Liste représentant la matrice d'incidence du graphe.
         """
-        return nx.incidence_matrix(self.__graphe,oriented=self.__directed).toarray().tolist()
+        # return nx.incidence_matrix(self.__graphe,oriented=self.__directed).toarray().tolist()
+        # nodes = sorted(self.__graphe.nodes())
+        # edges = sorted(self.__graphe.edges())
+        nodes = self.__graphe.nodes()
+        edges = self.__graphe.edges()
+        # Initialize an empty incidence matrix as a list of lists
+        incidence_list = [[0 for _ in range(len(edges))] for _ in range(len(nodes))]
+
+        # Fill the incidence matrix
+        if self.__directed:
+            for i, node in enumerate(nodes):
+                for j, edge in enumerate(edges):
+                    if node == edge[0]:
+                        incidence_list[i][j] = -1
+                    elif node == edge[1]:
+                        incidence_list[i][j] = 1
+        else:
+            for i, node in enumerate(nodes):
+                for j, edge in enumerate(edges):
+                    if node in edge:
+                        incidence_list[i][j] = 1
+                        if edge[0]==edge[1]:
+                            incidence_list[i][j] += 1
+
+        return incidence_list
     def getListeSommet(self)->list:
         """
         Retourne une liste contenant tous les sommets du graphe.
