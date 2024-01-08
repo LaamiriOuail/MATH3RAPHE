@@ -120,6 +120,10 @@ The GNU General Public License is a free, copyleft license for software and othe
 [Learn more](LICENSE)
 
 
+
+
+
+
 ## Stay in touch :
 - Author - [Ouail Laamiri](https://www.linkedin.com/in/ouaillaamiri/) 
 - Documentation - [Sphinix](https://laamiriouail.github.io/MATH3RAPHE/)
