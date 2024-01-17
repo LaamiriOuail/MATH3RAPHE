@@ -2,6 +2,9 @@ from fpdf import FPDF
 import datetime
 import os
 import sys
+from pathlib import Path
+
+
 parent_dir = os.path.abspath(os.path.join(os.getcwd(), '.'))
 sys.path.append(parent_dir)
 def dateTime()->list:
@@ -118,35 +121,35 @@ def generate_pdf(title:str,nom:str,path:str,graphe,note_pdf):
         pdf.add_page()
 
         #image de dfs
-        pdf.image('./public/image/graph-dfs.png', x=0, y=130, w=100)
+        pdf.image(Path('./public/image/graph-dfs.png'), x=0, y=130, w=100)
         # image dfs label
         pdf.set_font("Arial", size=10)
         pdf.set_xy(22, 140)
         pdf.cell(10, 130, "figure3 : Representation de DFS")
 
         #image de graphe
-        pdf.image('./public/image/graph.png', x=0, y=30, w=100)
+        pdf.image(Path('./public/image/graph.png'), x=0, y=30, w=100)
         # image graphe label
         pdf.set_font("Arial", size=10)
         pdf.set_xy(22, 40)
         pdf.cell(10, 130, "figure1 : Representation de graphe")
         if graphe.isDirected():
             #image de prime/kruskal(non-orienter pondere connexe) or warshall(orienter)
-            pdf.image('./public/image/graph-warshall.png', x=110, y=130, w=100)
+            pdf.image(Path('./public/image/graph-warshall.png'), x=110, y=130, w=100)
             # image prime/kruskal or warshall label
             pdf.set_font("Arial", size=10)
             pdf.set_xy(132, 140)
             pdf.cell(10, 130, "figure4 : Representation de Warshall")
         elif graphe.isConnexe() and graphe.isPondere():
             #image de prime/kruskal(non-orienter pondere connexe) 
-            pdf.image('./public/image/graph-prim.png', x=110, y=130, w=100)
+            pdf.image(Path('./public/image/graph-prim.png'), x=110, y=130, w=100)
             # image prime/kruskal
             pdf.set_font("Arial", size=10)
             pdf.set_xy(132, 140)
             pdf.cell(10, 130, "figure4 : Representation de Prime/Kruskal")
 
         #image de bfs
-        pdf.image('./public/image/graph-bfs.png', x=110, y=30, w=100)
+        pdf.image(Path('./public/image/graph-bfs.png'), x=110, y=30, w=100)
         # image bfs label
         pdf.set_font("Arial", size=10)
         pdf.set_xy(132, 40)
@@ -172,7 +175,7 @@ def generate_pdf(title:str,nom:str,path:str,graphe,note_pdf):
         if graphe.isPondere():
             pdf.add_page()
             #image de dijkstra/ford
-            pdf.image('./public/image/graph-bellman-ford.png', x=0, y=30, w=100)
+            pdf.image(Path('./public/image/graph-bellman-ford.png'), x=0, y=30, w=100)
             # image dijkstra/ford label
             pdf.set_font("Arial", size=10)
             pdf.set_xy(22, 40)
@@ -195,7 +198,7 @@ def generate_pdf(title:str,nom:str,path:str,graphe,note_pdf):
             # Draw a line
             pdf.line(10, 20, 203, 20)
 
-        pdf.output(f"{path}\\{title}.pdf")
+        pdf.output(Path(f"{path}\\{title}.pdf"))
         note_pdf.setText(f"Pdf enregistrer en : {path}\\{title}.pdf")
         note_pdf.setStyleSheet("background-color: green ; color : white;font-size:15px;")
     except:

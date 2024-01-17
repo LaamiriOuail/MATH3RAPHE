@@ -8,6 +8,8 @@ import networkx as nx
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
+from pathlib import Path
+
 # import Graphe
 class Window(QWidget):
     """
@@ -526,21 +528,21 @@ class Fram(QFrame):
         layout.addWidget(canvas)
         name.setLayout(layout)
         if flag=='graphe':
-            canvas.print_figure('./public/image/graph.png')
+            canvas.print_figure(Path('./public/image/graph.png'))
         elif flag=='bfs':
-            canvas.print_figure('./public/image/graph-bfs.png')
+            canvas.print_figure(Path('./public/image/graph-bfs.png'))
         elif flag=='dfs':
-            canvas.print_figure('./public/image/graph-dfs.png')
+            canvas.print_figure(Path('./public/image/graph-dfs.png'))
         elif flag=='dijkstra':
-            canvas.print_figure('./public/image/graph-dijkstra.png')
+            canvas.print_figure(Path('./public/image/graph-dijkstra.png'))
         elif flag=="prim":
-            canvas.print_figure('./public/image/graph-prim.png')
+            canvas.print_figure(Path('./public/image/graph-prim.png'))
         elif flag=="warshall":
-            canvas.print_figure('./public/image/graph-warshall.png')
+            canvas.print_figure(Path('./public/image/graph-warshall.png'))
         elif flag=="kruskal":
-            canvas.print_figure('./public/image/graph-kruskal.png')
+            canvas.print_figure(Path('./public/image/graph-kruskal.png'))
         elif flag=="bellman_ford":
-            canvas.print_figure('./public/image/graph-bellman-ford.png')
+            canvas.print_figure(Path('./public/image/graph-bellman-ford.png'))
         return name
     
     

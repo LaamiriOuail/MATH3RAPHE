@@ -29,7 +29,7 @@ from views.grapheRepresentation import grapheRepresentationComponent
 from views.bellmanFord import bellmanFordComponent
 import pygame
 import datetime
-
+from pathlib import path
 
 
 theorie_graphe_app=QApplication(sys.argv)
@@ -826,6 +826,9 @@ def show_frame(frame:QFrame)->None:
     else:
         frame_graphe_rep.show()
     frame.show()
+    
+
+
     
 def btn_info_graphe_bare_event()->None:
     """
