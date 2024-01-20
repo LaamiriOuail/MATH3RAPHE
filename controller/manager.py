@@ -829,6 +829,9 @@ def show_frame(frame:QFrame)->None:
     
 
 
+
+
+
     
 def btn_info_graphe_bare_event()->None:
     """
